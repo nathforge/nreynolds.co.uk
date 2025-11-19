@@ -122,6 +122,7 @@
     background-color: transparent;
     padding: 0;
     font-size: 1em;
+    color: #e6edf3; /* Light text for dark background when no syntax highlighting */
   }
 
   :global(.prose strong) {

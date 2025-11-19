@@ -16,6 +16,7 @@ const config = {
           const html = await codeToHtml(code, {
             lang,
             theme: "github-dark",
+            defaultColor: false,
           });
           return `{@html \`${html}\` }`;
         },
