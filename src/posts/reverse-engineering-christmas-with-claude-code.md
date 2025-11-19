@@ -63,12 +63,10 @@ _Or_ - throw some more LLM at it.
 
 <p>&nbsp;</p>
 
-> Create an example typescript file demonstrating signup.
+> Create example typescript demonstrating the signup process.
 > My email is redacted@gmail.com.<br>
 > You can suffix the username with “+” and a random number for testing.
 > Run the signup script. Verify the signup endpoint returns a successful response.
-
-Reader, **it smashed it**:
 
 - “The API responded. It's returning a 400 error because the field names are different. Let me look at the actual User entity structure and update the script”
 - “The API expects name and surname instead of firstName and lastName”
@@ -81,9 +79,10 @@ Reader, **it smashed it**:
 <div>
     Hallmark signup sends <a href="https://www.google.com/search?client=firefox-b-d&q=magic+link+auth">a magic link</a> for email confirmation.<br>
     It <em>also</em> includes the confirmation link in the signup API response - so it's trivial to bypass email confirmation.<br>
-    
 </div>
 </aside>
+
+<hr/>
 
 > I noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
 
