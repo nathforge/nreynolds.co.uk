@@ -8,7 +8,9 @@ date: "2025-11-19"
 </p>
 
 - **Option 1**: copy/paste movie listings from one of several websites.
-- **Option 2**: spend $20 on an LLM and *(1)* [boil a puddle](https://www.google.com/search?client=firefox-b-d&q=ai+is+boiling+the+ocean) ✊ *(2)* reverse engineer an Android app for fun.
+- **Option 2**: spend $20 on an LLM and:
+  * Reverse engineer an Android app for fun.
+  * [Boil a puddle](https://www.google.com/search?client=firefox-b-d&q=ai+is+boiling+the+ocean) ✊
 
 <p>&nbsp;</p>
 
