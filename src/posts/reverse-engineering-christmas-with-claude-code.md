@@ -16,7 +16,7 @@ I don't understand it, they're terrible films. But I swore an oath or what-have-
 
 <img src="/d4e57d40-3b2a-445c-afa3-c869dae9fde1.png" style="float: right; max-width: 200px; border-radius: 8px; margin-left: 2em">
 
-**Given my aversion to unboiled puddles the choice is clear.** Let’s grab the [Hallmark APK](https://www.google.com/search?q=hallmark+movie+checklist+apk+download) and have at it.
+**Given my aversion to unboiled puddles *the choice is clear.*** Let’s grab the [Hallmark APK](https://www.google.com/search?q=hallmark+movie+checklist+apk+download) and have at it.
 
 <aside>
 <div class="aside-icon">❓</div>
