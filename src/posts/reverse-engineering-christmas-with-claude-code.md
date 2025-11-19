@@ -52,7 +52,8 @@ _Or_ - throw some more LLM at it.
 
 **Hey, Claude:**
 
-> List the API endpoints called from this decompiled Android app. Figure out how authentication works.
+> List the API endpoints called from this decompiled Android app.
+> Figure out how authentication works.
 
 - “POST auth/create - Register device”
 - “GET app/franchise/`{id}` - Get franchise details”
@@ -69,7 +70,7 @@ _Or_ - throw some more LLM at it.
 
 Reader, **it smashed it**:
 
-- “Good! The API responded. It's returning a 400 error because the field names are different. Let me look at the actual User entity structure and update the script”
+- “The API responded. It's returning a 400 error because the field names are different. Let me look at the actual User entity structure and update the script”
 - “The API expects name and surname instead of firstName and lastName”
 - “The signup endpoint is working successfully! Let me create an enhanced version of the script with better documentation and add a confirmation script as well”
 
@@ -86,7 +87,7 @@ Reader, **it smashed it**:
 
 > I noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
 
-- “I understand the structure. The confirmation body needs id, deviceId,
+- “The confirmation body needs id, deviceId,
   and confirmationToken. Let me look for how to generate a device ID”
 - “The confirmation worked (200 OK) but the response format is different.
   Let me check what we got back”
@@ -100,6 +101,6 @@ Neat.
 > [That is fantastic, well done you](https://en.wikipedia.org/wiki/Roko%27s_basilisk).
 I've saved an access token to `token.txt`. Using this, can you write a script that lists movies?
 
-tl;dr: Yes.
+**tl;dr**: Yes.
 
 Very impressive.
