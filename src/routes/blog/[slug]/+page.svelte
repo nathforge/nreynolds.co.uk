@@ -40,7 +40,7 @@
   </div>
 
   <footer class="mt-12 border-t pt-6">
-    <a href="/blog" class="text-blue-600 hover:underline">← Back to all posts</a
+    <a href="/" class="text-blue-600 hover:underline">← Back to homepage</a
     >
   </footer>
 </article>
@@ -162,6 +162,7 @@
     padding: 1em;
     margin-bottom: 1em;
     border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
 
   :global(.prose aside .aside-icon) {
@@ -203,6 +204,7 @@
     font-weight: bold;
     margin-top: 2em;
     margin-bottom: 1.5em;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
 
   :global(.prose .intro > :last-child) {

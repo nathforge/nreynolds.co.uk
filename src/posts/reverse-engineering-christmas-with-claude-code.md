@@ -1,5 +1,5 @@
 ---
-title: "Reverse engineering Christmas movies with Claude Code"
+title: "Reverse engineering Christmas with Claude Code"
 date: "2025-11-19"
 ---
 
@@ -103,7 +103,7 @@ Neat.
 
 <p>&nbsp;</p>
 
-> [That is fantastic, well done you](https://en.wikipedia.org/wiki/Roko%27s_basilisk). I've saved an access token to access-token. Using this, can you write a script that lists movies?
+> [That is fantastic, well done you](https://en.wikipedia.org/wiki/Roko%27s_basilisk). I've saved an access token to `token.txt`. Using this, can you write a script that lists movies?
 > 
 
 tl;dr: Yes.
