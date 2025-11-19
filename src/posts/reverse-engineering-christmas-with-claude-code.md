@@ -85,7 +85,7 @@ Reader, **it smashed it**:
 </div>
 </aside>
 
-> _Hey C-dog_: I’ve noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
+> _Hey C-dog_: I noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
 
 - “I understand the structure. The confirmation body needs id, deviceId,
   and confirmationToken. Let me look for how to generate a device ID”
