@@ -35,7 +35,7 @@ adb shell "chmod 755 /data/local/tmp/frida-server"
 adb shell "/data/local/tmp/frida-server &"
 ```
 
-ChatGPT then wrote this patch to log HTTP calls:
+ChatGPT wrote this to log HTTP calls:
 
 ```javascript
 Java.perform(function () {
@@ -62,7 +62,7 @@ Java.perform(function () {
 
 Which I ran with:
 
-```jsx
+```shell
 while true; do
   uv run --with frida-tools frida -U -n Latitude -l hook.js
   sleep 0.5
@@ -86,9 +86,9 @@ Judicious use of Ctrl+F got me a Smali file containing the string “Password is
 
 In the Smali file we had a class of `.class public final LIc/g;` and a decryption function of `.method public final a(Ljava/io/File;Ljava/io/File;Ljava/lang/String;LXc/d;)Ljava/lang/Object;`.
 
-Plugging those into ChatGPT again gave me this hook:
+Plugging those into ChatGPT gave me this:
 
-```jsx
+```shell
 Java.perform(function () {
     var TargetClass = Java.use("Ic.g");
 
