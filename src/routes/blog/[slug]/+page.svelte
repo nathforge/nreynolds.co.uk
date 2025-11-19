@@ -39,12 +39,15 @@
     {@render data.content()}
   </div>
 
-  <footer class="mt-12 border-t pt-6">
+  <footer class="footer mt-12 pt-6">
     <a href="/" class="text-blue-600 hover:underline">← Back to homepage</a>
   </footer>
 </article>
 
 <style>
+  .footer {
+    border-top: 1px solid #e5e7eb;
+  }
   :global(.prose) {
     color: #374151;
   }

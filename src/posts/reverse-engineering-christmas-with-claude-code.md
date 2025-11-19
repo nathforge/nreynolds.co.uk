@@ -52,7 +52,7 @@ _Or_ - throw an LLM at it.
 
 **Hey, Claude:**
 
-> Find the API endpoints called from this decompiled Android app. Look for authentication
+> List the API endpoints called from this decompiled Android app. Look for authentication
 > methods.
 
 - “POST auth/create - Register device”
@@ -63,7 +63,7 @@ _Or_ - throw an LLM at it.
 
 <p>&nbsp;</p>
 
-> _Dearest Claude_: Create an example typescript file demonstrating signup.
+> Create an example typescript file demonstrating signup.
 > My email is redacted@gmail.com.<br>
 > You can suffix the username with “+” and a random number for testing.
 > Run the signup script. Verify the signup endpoint returns a successful response.
@@ -85,7 +85,7 @@ Reader, **it smashed it**:
 </div>
 </aside>
 
-> _Hey C-dog_: I noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
+> I noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
 
 - “I understand the structure. The confirmation body needs id, deviceId,
   and confirmationToken. Let me look for how to generate a device ID”
@@ -98,7 +98,8 @@ Neat.
 
 <hr/>
 
-> [That is fantastic, well done you](https://en.wikipedia.org/wiki/Roko%27s_basilisk). I've saved an access token to `token.txt`. Using this, can you write a script that lists movies?
+> [That is fantastic, well done you](https://en.wikipedia.org/wiki/Roko%27s_basilisk).
+I've saved an access token to `token.txt`. Using this, can you write a script that lists movies?
 
 tl;dr: Yes.
 
