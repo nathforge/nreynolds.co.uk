@@ -3,7 +3,7 @@ title: "🎄 Reverse engineering Christmas with Claude Code"
 date: "2025-11-19"
 ---
 
-For marriage-related reasons I needed a CSV of Hallmark Christmas movies.
+For marriage-related reasons I needed a list of Hallmark Christmas movies.
 
 I don't understand it, they're terrible films. But I swore an oath or what-have-you.
 
