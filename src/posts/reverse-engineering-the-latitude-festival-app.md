@@ -23,7 +23,7 @@ I used [apktool](https://apktool.org/) to decompile the xapk to [Smali code](htt
     </div>
 </aside>
 
-I wanted to experiment with [frida-server](https://frida.re/docs/android/) - it’s a toolkit that lets you patch Android functions. Initially to monitor HTTPS traffic. I potentially could have used [mitmweb](https://www.mitmproxy.org/) but Frida came in handy later.
+I wanted to experiment with [frida-server](https://frida.re/docs/android/) - it’s a toolkit that lets you patch Android functions. Initially to monitor HTTPS traffic - I potentially could have used [mitmweb](https://www.mitmproxy.org/) but Frida came in handy later.
 
 I [setup an Android emulator](https://developer.android.com/studio/run/emulator) - apparently they’re locked down these days and don’t let you use root. An API 26 image worked for me, there’s probably other options I’m not aware of. (Did I mention I don’t really know what I’m doing?)
 
