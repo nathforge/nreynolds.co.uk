@@ -20,7 +20,7 @@
     </a>
   </div>
 
-  <header class="mb-8">
+  <header class="mb-16">
     <h1 class="mb-4 text-4xl font-bold">{data.metadata.title}</h1>
     <div class="flex items-center gap-2">
       <a href="/" class="text-blue-600 hover:underline">← Home</a>
@@ -142,29 +142,12 @@
   }
 
   :global(.prose blockquote) {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5em;
-    border-left: 4px solid #e5e7eb;
-    padding-left: 1em;
-    font-style: italic;
-    color: #6b7280;
+    background-color: #f3f4f6;
+    padding: 1em;
     margin-bottom: 1em;
+    border-radius: 0.5rem;
+    border-left: 4px solid #9ca3af;
     white-space: pre-line;
-  }
-
-  :global(.prose blockquote::before) {
-    content: "\201C";
-    grid-column: 1;
-    grid-row: 1;
-    font-size: 2em;
-    line-height: 1;
-    font-style: normal;
-    font-family: Georgia, serif;
-  }
-
-  :global(.prose blockquote > *) {
-    grid-column: 2;
   }
 
   :global(.prose blockquote > :last-child) {
@@ -175,7 +158,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 1em;
-    background-color: #f3f4f6;
+    background: linear-gradient(to bottom right, #faf5ff, #fce7f3);
     padding: 1em;
     margin-bottom: 1em;
     border-radius: 0.5rem;

@@ -4,7 +4,7 @@ date: "2025-11-19"
 ---
 
 <div class="intro">
-For marriage-related reasons I need a CSV of Hallmark Christmas movies.
+For marriage-related reasons I needed a CSV of Hallmark Christmas movies.
 </div>
 
 <p>&nbsp;</p>
@@ -32,17 +32,20 @@ Here’s how I *would* have done it:
 
 - Unzip the `xapk`. This contains the `apk`, which is the interesting bit of the Android app.
 - Run [apktool](https://apktool.org/) to disassemble bytecode to [Smali](https://www.google.com/search?q=smali+language).
-- Read code. Ctrl+F. Think a lot.
+- Read code.
+- Ctrl+F.
+- Think a lot.
 
 <p>&nbsp;</p>
 
 What I actually did:
 
-> Hey Claude, I want to reverse engineer this Android app for which I lost the source code 😉. The xapk is in this directory. Give me readable code to work with.
+> Hey Claude, I want to reverse engineer this Android app for which I lost the source code 😉.
+The xapk is in this directory. Give me readable code to work with.
 
 <p>&nbsp;</p>
 
-(It output Java files! I expected [Smali](https://www.google.com/search?q=smali+code), but it ran a [decompiler](https://github.com/skylot/jadx) 👌)
+It output Java files! (I expected [Smali](https://www.google.com/search?q=smali+code) but it ran a [decompiler](https://github.com/skylot/jadx) 👌)
 
 The files are obfuscated - minified names etc. That’s fine, it takes longer but no match for someone with plentiful free time.
 
@@ -55,19 +58,20 @@ The files are obfuscated - minified names etc. That’s fine, it takes longer bu
 > Find the API endpoints called from this decompiled Android app. Look for authentication
 methods.
 
-- POST auth/create - Register device
-- GET app/franchise/`{id}` - Get franchise details
+- “POST auth/create - Register device”
+- “GET app/franchise/`{id}` - Get franchise details”
 - …
 
 👍
 
 <p>&nbsp;</p>
 
-> Create an example typescript file demonstrating signup. My email is 🤡[@gmail.com](mailto:nathforge@gmail.com).
+> *Dearest Claude*: Create an example typescript file demonstrating signup.
+My email is redacted@gmail.com.<br>
 You can suffix the username with “+” and a random number for testing.
 Run the signup script. Verify the signup endpoint returns a successful response.
 
-Reader, it smashed it:
+Reader, **it smashed it**:
 
 - “Good! The API responded. It's returning a 400 error because the field names are different. Let me look at the actual User entity structure and update the script”
 - “The API expects name and surname instead of firstName and lastName”
@@ -86,7 +90,7 @@ Reader, it smashed it:
 
 <p>&nbsp;</p>
 
-> I’ve noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
+> *Hey C-dog*: I’ve noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
 
 - “I understand the structure. The confirmation body needs id, deviceId,
 and confirmationToken. Let me look for how to generate a device ID”

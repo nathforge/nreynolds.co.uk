@@ -3,7 +3,7 @@
 </script>
 
 <div class="container mx-auto max-w-4xl px-4 py-8">
-  <h1 class="mb-8 text-4xl font-bold">Blog</h1>
+  <h1 class="mb-16 text-4xl font-bold">Blog</h1>
 
   <div class="space-y-6">
     {#each data.posts as post}
