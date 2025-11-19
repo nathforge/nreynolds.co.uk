@@ -55,8 +55,8 @@ _Or_ - throw some more LLM at it.
 > List the API endpoints called from this decompiled Android app.
 > Figure out how authentication works.
 
-- “POST auth/create - Register device”
-- “GET app/franchise/`{id}` - Get franchise details”
+- “`POST auth/create` - Register device”
+- “`GET app/franchise/{id}` - Get franchise details”
 - *… and so on*
 
 👍
