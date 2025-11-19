@@ -47,7 +47,7 @@ On the left we're saying what we *don't* want in our image. It's the default sty
 
 On the right we're explicit about what we *do* want.
 
-## Who cares?
+## Why?
 
  1. **Easier to reason about**. We have tools
     like [dive](https://github.com/wagoodman/dive) to diagnose image bloat. We'll still use them, but not so often.
