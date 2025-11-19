@@ -7,8 +7,6 @@ date: "2025-11-19"
 For marriage-related reasons I needed a CSV of Hallmark Christmas movies.
 </div>
 
-<p>&nbsp;</p>
-
 - **Option 1:** copy/paste from one of many websites.
 - **Option 2:** spend $20 on an LLM and:
   1.  [Boil a puddle](https://www.google.com/search?client=firefox-b-d&q=boiling+the+ocean+llm) (✊)
