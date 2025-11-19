@@ -3,9 +3,7 @@ title: "🥂 Reverse engineering the Latitude festival app"
 date: "2025-08-04"
 ---
 
-<div class="intro">
-    <a href="https://www.bbc.co.uk/news/uk-england-suffolk-38519169">The most middle class festival in Britain</a> happens to be my local.
-</div>
+**<a href="https://www.bbc.co.uk/news/uk-england-suffolk-38519169">The most middle class festival in Britain</a> happens to be my local.**
 
 Having the schedule on a spreadsheet is super handy. But that’s not something they offer.
 
