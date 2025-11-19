@@ -1,5 +1,5 @@
 ---
-title: "Reverse engineering Christmas with Claude Code"
+title: "🎄 Reverse engineering Christmas with Claude Code"
 date: "2025-11-19"
 ---
 
@@ -9,10 +9,10 @@ For marriage-related reasons I needed a CSV of Hallmark Christmas movies.
 
 <p>&nbsp;</p>
 
- * **Option 1:** copy/paste from one of many websites.
- * **Option 2:** spend $20 on an LLM and:
-   1. [Boil a puddle](https://www.google.com/search?client=firefox-b-d&q=boiling+the+ocean+llm) (✊)
-   2. Reverse engineer an Android app for fun.
+- **Option 1:** copy/paste from one of many websites.
+- **Option 2:** spend $20 on an LLM and:
+  1.  [Boil a puddle](https://www.google.com/search?client=firefox-b-d&q=boiling+the+ocean+llm) (✊)
+  2.  Reverse engineer an Android app for fun.
 
 <p>&nbsp;</p>
 
@@ -24,11 +24,12 @@ For marriage-related reasons I needed a CSV of Hallmark Christmas movies.
 <div class="aside-icon">❓</div>
 
 Android apps are generally easier to reverse than the iOS equivalent. Open platform, bytecode, etc.
+
 </aside>
 
 <p>&nbsp;</p>
 
-Here’s how I *would* have done it:
+Here’s how I _would_ have done it:
 
 - Unzip the `xapk`. This contains the `apk`, which is the interesting bit of the Android app.
 - Run [apktool](https://apktool.org/) to disassemble bytecode to [Smali](https://www.google.com/search?q=smali+language).
@@ -41,7 +42,7 @@ Here’s how I *would* have done it:
 What I actually did:
 
 > Hey Claude, I want to reverse engineer this Android app for which I lost the source code 😉.
-The xapk is in this directory. Give me readable code to work with.
+> The xapk is in this directory. Give me readable code to work with.
 
 <p>&nbsp;</p>
 
@@ -49,14 +50,14 @@ It output Java files! (I expected [Smali](https://www.google.com/search?q=smali+
 
 The files are obfuscated - minified names etc. That’s fine, it takes longer but no match for someone with plentiful free time.
 
-*Or* - a $20 subscription.
+_Or_ - a $20 subscription.
 
 ---
 
 **Hey, Claude:**
 
 > Find the API endpoints called from this decompiled Android app. Look for authentication
-methods.
+> methods.
 
 - “POST auth/create - Register device”
 - “GET app/franchise/`{id}` - Get franchise details”
@@ -66,10 +67,10 @@ methods.
 
 <p>&nbsp;</p>
 
-> *Dearest Claude*: Create an example typescript file demonstrating signup.
-My email is redacted@gmail.com.<br>
-You can suffix the username with “+” and a random number for testing.
-Run the signup script. Verify the signup endpoint returns a successful response.
+> _Dearest Claude_: Create an example typescript file demonstrating signup.
+> My email is redacted@gmail.com.<br>
+> You can suffix the username with “+” and a random number for testing.
+> Run the signup script. Verify the signup endpoint returns a successful response.
 
 Reader, **it smashed it**:
 
@@ -90,21 +91,20 @@ Reader, **it smashed it**:
 
 <p>&nbsp;</p>
 
-> *Hey C-dog*: I’ve noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
+> _Hey C-dog_: I’ve noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
 
 - “I understand the structure. The confirmation body needs id, deviceId,
-and confirmationToken. Let me look for how to generate a device ID”
+  and confirmationToken. Let me look for how to generate a device ID”
 - “The confirmation worked (200 OK) but the response format is different.
-Let me check what we got back”
+  Let me check what we got back”
 - “The script successfully obtained a working JWT access token valid for ~1 year, and
-verified it works by successfully calling the authenticated /app/settings endpoint.”
+  verified it works by successfully calling the authenticated /app/settings endpoint.”
 
 Neat.
 
 <p>&nbsp;</p>
 
 > [That is fantastic, well done you](https://en.wikipedia.org/wiki/Roko%27s_basilisk). I've saved an access token to `token.txt`. Using this, can you write a script that lists movies?
-> 
 
 tl;dr: Yes.
 

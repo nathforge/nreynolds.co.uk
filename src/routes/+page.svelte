@@ -2,10 +2,16 @@
   let { data } = $props();
 
   const tinkeringProjects = [
-    { title: "Open source music visualizer", url: "https://github.com/example/visualizer" },
-    { title: "Raspberry Pi weather station", url: "https://github.com/example/weather" },
-    { title: "Custom mechanical keyboard firmware", url: "https://github.com/example/keyboard" },
-    { title: "Home automation dashboard", url: "https://github.com/example/dashboard" }
+    {
+      title: "⏲️ Dishwasher Timer",
+      subtitle: "Avoid thinking when programming the dishwasher.",
+      url: "/experiments/dishwasher-timer",
+    },
+    {
+      title: "💪 Nuffield Gym Activity",
+      subtitle: "Activity heatmap for Nuffield Norwich.",
+      url: "/experiments/nuffield-activity",
+    },
   ];
 </script>
 
@@ -64,16 +70,22 @@
       <div>
         <h2 class="mb-6 text-2xl text-gray-800">Blog</h2>
         <div class="space-y-6">
-          {#each data.posts as post}
+          {#each data.posts as post (post.slug)}
             <a
               href="/blog/{post.slug}"
               class="group block overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-purple-50 p-6 transition hover:shadow-lg"
             >
-              <h3 class="mb-2 text-xl font-bold text-gray-900 group-hover:text-blue-600">
+              <h3
+                class="mb-2 text-xl font-bold text-gray-900 group-hover:text-blue-600"
+              >
                 {post.title}
               </h3>
               <time class="mb-3 block text-sm font-medium text-gray-600">
-                {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </time>
               {#if post.description}
                 <p class="text-gray-700">{post.description}</p>
@@ -87,16 +99,19 @@
       <div>
         <h2 class="mb-6 text-2xl text-gray-800">Tinkering</h2>
         <div class="space-y-6">
-          {#each tinkeringProjects as project}
+          {#each tinkeringProjects as project (project.url)}
             <a
               href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
               class="group block overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-purple-50 p-6 transition hover:shadow-lg"
             >
-              <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600">
+              <h3
+                class="text-xl font-bold text-gray-900 group-hover:text-blue-600"
+              >
                 {project.title}
               </h3>
+              {#if project.subtitle}
+                <p class="mt-2 text-gray-700">{project.subtitle}</p>
+              {/if}
             </a>
           {/each}
         </div>
