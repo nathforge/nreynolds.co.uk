@@ -21,9 +21,9 @@ I used [apktool](https://apktool.org/) to decompile the xapk to [Smali code](htt
     </div>
 </aside>
 
-I wanted to experiment with [frida-server](https://frida.re/docs/android/) - it’s a toolkit that lets you patch Android functions. Initially to monitor HTTPS traffic - I could maybe have used [mitmweb](https://www.mitmproxy.org/) but Frida came in handy later.
+I wanted to experiment with [frida-server](https://frida.re/docs/android/) - it’s a toolkit that lets you patch Android functions. Initially to monitor HTTPS traffic - I could maybe have used [mitmweb](https://www.mitmproxy.org/), but Frida came in handy later.
 
-I [setup an Android emulator](https://developer.android.com/studio/run/emulator) - apparently they’re locked down these days and don’t let you use root. An API 26 image worked for me, there’s probably other options I’m not aware of.
+I [setup an Android emulator](https://developer.android.com/studio/run/emulator) - apparently they’re locked down these days and it's trickier to get root. An API 26 image worked for me, there’s probably other options I’m not aware of.
 
 I ran this to start the Frida server:
 
@@ -67,7 +67,7 @@ while true; do
 done
 ```
 
-This tried to hook the Latitude app every 0.5 seconds. This let me clear app data and restart the app, then Frida would jump in when the app started.
+This attempted to hook the Latitude app every 0.5 seconds. I could then clear app data and restart it, and Frida would patch the restarted app.
 
 <aside>
 🤫 <div>To reset the app state I ran <code>adb shell pm clear com.greencopper.android.latitude</code></div>
@@ -81,13 +81,13 @@ This URL can't be found in the codebase, we'll see why soon.
 
 The content zip files were encrypted 👊.
 
-Judicious use of Ctrl+F got me a Smali file containing the string “Password is blank. Please provide a valid password”. That sounds like a decryption function.
+Judicious use of Ctrl+F found a Smali file containing “Password is blank. Please provide a valid password”. That sounds like a decryption function.
 
 In Smali the decryption function was:
  * Class: `.class public final LIc/g;`
  * Method: `.method public final a(Ljava/io/File;Ljava/io/File;Ljava/lang/String;LXc/d;)Ljava/lang/Object;`
 
-Asking ChatGPT to hook the function gave:
+Feeding this to ChatGPT and asking it to hook the function gave:
 
 ```javascript
 Java.perform(function () {
@@ -108,8 +108,6 @@ Java.perform(function () {
 Ran the same way as the previous script, and…
 
 Bingo! The logged password was `content_v287[redacted]zip`, where `[redacted]` is the `secret` value in `runConfig.json`
-
-(`unzip` CLI couldn’t handle decrypting the file but `open content_v287.zip` did the trick.)
 
 And we now have a decrypted content file with some JSON files containing schedules, performers, etc. 🙌
 
