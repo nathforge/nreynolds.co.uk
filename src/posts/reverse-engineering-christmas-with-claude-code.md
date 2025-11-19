@@ -3,9 +3,9 @@ title: "🎄 Reverse engineering Christmas with Claude Code"
 date: "2025-11-19"
 ---
 
-<div class="intro">
 For marriage-related reasons I needed a CSV of Hallmark Christmas movies.
-</div>
+
+I don't understand it, they're terrible films. But I swore an oath or what-have-you.
 
 - **Option 1:** copy/paste from one of many websites.
 - **Option 2:** spend $20 on an LLM and:
