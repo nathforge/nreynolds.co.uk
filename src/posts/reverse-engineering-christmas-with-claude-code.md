@@ -5,7 +5,9 @@ date: "2025-11-19"
 
 <img src="/hallmark.jpg" style="float: right; max-width: 200px; border-radius: 8px; margin-left: 2em">
 
-**For marriage-related reasons I required a list of Hallmark Christmas movies.**
+<div class="intro">
+    For marriage-related reasons I required a list of Hallmark Christmas movies.
+</div>
 
 I don't understand it, they're terrible films. But I swore an oath or what-have-you.
 
