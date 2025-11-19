@@ -37,7 +37,7 @@ Here’s how I _would_ have done it:
 
 <p>&nbsp;</p>
 
-What I actually did:
+Here's what I actually done:
 
 > Hey Claude, I want to reverse engineer this Android app for which I lost the source code 😉.
 > The xapk is in this directory. Give me readable code to work with.
