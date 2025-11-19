@@ -4,7 +4,7 @@ date: "2025-11-19"
 ---
 
 <p style="font-size: 120%">
-    For marriage-related reasons I wanted a list of Hallmark Christmas movies.
+    For marriage-related reasons I need a list of Hallmark Christmas movies.
 </p>
 
 - **Option 1**: copy/paste movie listings from one of several websites.
