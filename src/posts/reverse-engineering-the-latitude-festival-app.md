@@ -73,9 +73,9 @@ This tried to hook the Latitude app every 0.5 seconds. This let me clear app dat
 🤫 <div>To reset the app state I ran <code>adb shell pm clear com.greencopper.android.latitude</code></div>
 </aside>
 
-Amongst other things it output https://api.mobile.leapevent.tech/ota/latitude-2025/9900587ec9b348da850a206f80ee39bd/.
+Amongst other things it output https://content.greencopper.net/latitude-2025/9900587ec9b348da850a206f80ee39bd/content/content_v287.zip
 
-This is a JSON manifest listing each content update, each being a zip file.
+This URL can't be found in the codebase, we'll see why soon.
 
 ## Encryption!
 
@@ -89,7 +89,7 @@ In Smali the decryption function was:
 
 Asking ChatGPT to hook the function gave:
 
-```shell
+```javascript
 Java.perform(function () {
     var TargetClass = Java.use("Ic.g");
 
@@ -107,8 +107,14 @@ Java.perform(function () {
 
 Ran the same way as the previous script, and…
 
-Bingo! The logged password was `content_v21[redacted]zip`, where `[redacted]` is the `secret` value in `runConfig.json`
+Bingo! The logged password was `content_v287[redacted]zip`, where `[redacted]` is the `secret` value in `runConfig.json`
 
-(`unzip` CLI couldn’t handle decrypting the file but `open content_v21.zip` did the trick.)
+(`unzip` CLI couldn’t handle decrypting the file but `open content_v287.zip` did the trick.)
 
 And we now have a decrypted content file with some JSON files containing schedules, performers, etc. 🙌
+
+## Pre-packaged content
+
+Remember the content zip URL? We couldn't find it in the codebase.
+
+That's because the app has a content zip bundled into the APK, in the assets/content directory. It's encrypted, but we know how to workaround that now. The decrypted content contains links to other content manifests.
