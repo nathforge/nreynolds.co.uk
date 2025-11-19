@@ -49,8 +49,7 @@ On the right we're explicit about what we *do* want.
 
 ## Why?
 
- 1. **Easier to reason about**. We have tools
-    like [dive](https://github.com/wagoodman/dive) to diagnose image bloat. We'll still use them, but not so often.
+ 1. **Easier to reason about**.
  2. **Slow builds**. More content in your Docker context == slower builds.
  3. **Slow deployments**. Both during the build, and when nodes pull images.
  4. **Improved security**. Less chance of unexpected files appearing in your images.
