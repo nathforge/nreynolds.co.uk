@@ -68,22 +68,22 @@
     </div>
 
     <!-- Two Column Layout -->
-    <div class="mb-12 grid gap-8 md:grid-cols-2">
+    <div class="mb-12 grid gap-6 md:grid-cols-2 md:divide-x md:divide-gray-200">
       <!-- Blog Posts -->
-      <div>
-        <h2 class="mb-6 text-2xl text-gray-800">Blog</h2>
-        <div class="space-y-6">
+      <div class="md:pr-6">
+        <h2 class="mb-4 text-xl text-gray-800">Blog</h2>
+        <div class="space-y-3">
           {#each data.posts as post (post.slug)}
             <a
               href="/blog/{post.slug}"
-              class="group block overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-purple-50 p-6 transition hover:shadow-lg"
+              class="group block overflow-hidden rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 p-4 transition hover:shadow-lg"
             >
               <h3
-                class="mb-2 text-xl font-bold text-gray-900 group-hover:text-blue-600"
+                class="mb-1 text-lg font-normal text-gray-900 group-hover:text-blue-600"
               >
                 {post.title}
               </h3>
-              <time class="mb-3 block text-sm font-medium text-gray-600">
+              <time class="mb-2 block text-xs font-medium text-gray-600">
                 {new Date(post.date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -91,7 +91,7 @@
                 })}
               </time>
               {#if post.description}
-                <p class="text-gray-700">{post.description}</p>
+                <p class="text-sm text-gray-700">{post.description}</p>
               {/if}
             </a>
           {/each}
@@ -100,20 +100,22 @@
 
       <!-- Tinkering Projects -->
       <div>
-        <h2 class="mb-6 text-2xl text-gray-800">Tinkering</h2>
-        <div class="space-y-6">
+        <h2 class="mb-4 text-xl text-gray-800">Tinkering</h2>
+        <div class="space-y-3">
           {#each tinkeringProjects as project (project.url)}
             <a
               href={project.url}
-              class="group block overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-purple-50 p-6 transition hover:shadow-lg"
+              class="group block overflow-hidden rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 p-4 transition hover:shadow-lg"
             >
               <h3
-                class="text-xl font-bold text-gray-900 group-hover:text-blue-600"
+                class="text-lg font-normal text-gray-900 group-hover:text-blue-600"
               >
                 {project.title}
               </h3>
               {#if project.subtitle}
-                <p class="mt-2 text-gray-700">{@html project.subtitle}</p>
+                <p class="mt-1 text-sm text-gray-700">
+                  {@html project.subtitle}
+                </p>
               {/if}
             </a>
           {/each}
