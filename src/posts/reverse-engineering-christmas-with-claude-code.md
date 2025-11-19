@@ -46,7 +46,7 @@ Kablam, it created some Java files! I expected [Smali](https://www.google.com/se
 
 The files are obfuscated - minified names etc. That’s fine, it takes longer to read through but still achievable.
 
-_Or_ - throw an LLM at it.
+_Or_ - throw some more LLM at it.
 
 ---
 
