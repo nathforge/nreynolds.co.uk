@@ -9,7 +9,7 @@ I don't understand it, they're terrible films. But I swore an oath or what-have-
 
 - **Option 1:** copy/paste from one of many websites.
 - **Option 2:** spend $20 on an LLM and:
-1.  [Boil a puddle](https://www.google.com/search?client=firefox-b-d&q=ai+is+boiling+the+ocean) (✊)
+  1.  [Boil a puddle](https://www.google.com/search?client=firefox-b-d&q=ai+is+boiling+the+ocean) (✊)
   2.  Reverse engineer an Android app for fun.
 
 <p>&nbsp;</p>
