@@ -44,9 +44,9 @@ Here's what actually happened:
 
 It output Java files! (I expected [Smali](https://www.google.com/search?q=smali+code) but it ran a [decompiler](https://github.com/skylot/jadx) 👌)
 
-The files are obfuscated - minified names etc. That’s fine, it takes longer but no match for someone with plentiful free time.
+The files are obfuscated - minified names etc. That’s fine, it takes longer to sift through but still achievable.
 
-_Or_ - a $20 subscription.
+_Or_ - throw an LLM at it.
 
 ---
 
