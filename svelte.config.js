@@ -1,12 +1,27 @@
 import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { mdsvex } from "mdsvex";
+import { codeToHtml } from "shiki";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://svelte.dev/docs/kit/integrations
   // for more information about preprocessors
-  preprocess: [vitePreprocess(), mdsvex({ extensions: [".md"] })],
+  preprocess: [
+    vitePreprocess(),
+    mdsvex({
+      extensions: [".md"],
+      highlight: {
+        highlighter: async (code, lang = "text") => {
+          const html = await codeToHtml(code, {
+            lang,
+            theme: "github-dark",
+          });
+          return `{@html \`${html}\` }`;
+        },
+      },
+    }),
+  ],
   extensions: [".svelte", ".md"],
 
   kit: {

@@ -102,8 +102,6 @@
   }
 
   :global(.prose pre) {
-    background-color: #1f2937;
-    color: #f9fafb;
     padding: 1em;
     border-radius: 0.375rem;
     overflow-x: auto;
@@ -120,8 +118,8 @@
 
   :global(.prose pre code) {
     background-color: transparent;
-    color: inherit;
     padding: 0;
+    font-size: 1em;
   }
 
   :global(.prose strong) {
