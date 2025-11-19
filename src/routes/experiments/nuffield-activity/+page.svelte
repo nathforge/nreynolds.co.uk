@@ -11,8 +11,6 @@
 		[0, 0, 0, 0, 0, 0, 0, 0, 49, 66, 64, 53, 42, 37, 32, 30, 30, 30, 30, 23, 0, 0, 0, 0]
 	];
 
-	let liveActivity: null | number = $state(null);
-
 	let now = $state(new Date().getTime());
 	const nowWeekday = $derived(new Date(now).getDay());
 	const nowHour = $derived(new Date(now).getHours());
@@ -30,31 +28,13 @@
 		hours.push(hour);
 	}
 
-	async function updateLiveActivity() {
-		// Disabled - Google seems to be returning 100 out of spite
-		return;
-
-		// const res = await fetch('./nuffield-activity/live');
-		// if (!res.ok) {
-		// 	console.error(`Failed to fetch live activity - unexpected HTTP ${res.status}`);
-		// 	return;
-		// }
-		// const data = await res.json();
-		// liveActivity = data;
-	}
-
 	// Update current time every second
 	onMount(() => {
 		const interval = setInterval(() => (now = new Date().getTime()), 1_000);
 		return () => clearInterval(interval);
 	});
 
-	// Update live activity every 5 minutes
-	onMount(() => {
-		updateLiveActivity();
-		const interval = setInterval(() => updateLiveActivity(), 5 * 60 * 1000);
-		return () => clearInterval(interval);
-	});
+
 </script>
 
 <svelte:head>
@@ -91,9 +71,7 @@
 				</div>
 				{#each weekdayNumbers as weekday (weekday)}
 					{@const isNow = hour === nowHour && weekday === nowWeekday}
-					{@const isLive = isNow && liveActivity !== null}
-					{@const usualActivity = activityByWeekday[weekday][hour]}
-					{@const activity = isLive ? liveActivity : usualActivity}
+					{@const activity = activityByWeekday[weekday][hour]}
 
 					{#if activity === 0}
 						<div></div>
@@ -104,11 +82,10 @@
 								: `color-mix(in oklab, var(--heatmap-gradient-50), var(--heatmap-gradient-100) ${((activity - 50) / 50) * 100}%)`}
 
 						<div
-							class={`
-  					            flex items-center justify-center text-center
-     					        ${activity > 0 && isNow ? 'z-10 -m-2 rounded-2xl border-1 border-gray-700/50 text-lg font-semibold drop-shadow-md' : ''}
-                                ${isLive ? 'border-red-500' : ''}
-      					    `}
+						class={`
+						flex items-center justify-center text-center
+						${activity > 0 && isNow ? 'z-10 -m-2 rounded-2xl border-1 border-gray-700/50 text-lg font-semibold drop-shadow-md' : ''}
+						`}
 							style:background={isNow
 								? `linear-gradient(155deg, color-mix(in oklab, ${backgroundColor}, white 50%), ${backgroundColor})`
 								: `linear-gradient(155deg, color-mix(in oklab, ${backgroundColor}, white 20%), ${backgroundColor})`}
