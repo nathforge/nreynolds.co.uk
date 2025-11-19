@@ -57,7 +57,7 @@ _Or_ - throw some more LLM at it.
 
 - “POST auth/create - Register device”
 - “GET app/franchise/`{id}` - Get franchise details”
-- …
+- *… and so on*
 
 👍
 
