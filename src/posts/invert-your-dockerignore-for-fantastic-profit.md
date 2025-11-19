@@ -1,6 +1,6 @@
 ---
 title: "⛴️ Invert your .dockerignore for great profit"
-date: "2025-11-19"
+date: "2025-11-12"
 ---
 
 Here are two .dockerignore files:
