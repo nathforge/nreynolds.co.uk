@@ -3,8 +3,8 @@
 
   const tinkeringProjects = [
     {
-      title: "⏲️ Dishwasher Timer",
-      subtitle: "Avoid thinking when programming the dishwasher.",
+      title: "⏲️ Dishwasher Timer Calculator",
+      subtitle: "Because you can't think <em>and</em> load a dishwasher.",
       url: "/experiments/dishwasher-timer",
     },
     {
@@ -32,6 +32,7 @@
           </h1>
         </div>
       </div>
+      <p class="mt-2 text-gray-600">A bunch of stuff, mostly for me. 👋</p>
     </div>
 
     <div class="mb-24 flex justify-center space-x-4">
@@ -110,7 +111,7 @@
                 {project.title}
               </h3>
               {#if project.subtitle}
-                <p class="mt-2 text-gray-700">{project.subtitle}</p>
+                <p class="mt-2 text-gray-700">{@html project.subtitle}</p>
               {/if}
             </a>
           {/each}
