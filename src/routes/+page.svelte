@@ -9,7 +9,7 @@
     },
     {
       title: "💪 Nuffield Gym Activity",
-      subtitle: "Activity heatmap for Nuffield Norwich.",
+      subtitle: "Activity heatmap for Nuffield Norwich Gym.",
       url: "/experiments/nuffield-activity",
     },
   ];
@@ -39,7 +39,7 @@
 
     <div class="mb-24 flex justify-center space-x-4">
       <a
-        href="https://github.com/nathforge"
+        href="https://github.com/nathforge/nreynolds.co.uk"
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center space-x-2 rounded-full bg-gray-900 px-4 py-2 text-white hover:bg-gray-800 transition opacity-50 hover:opacity-100"
