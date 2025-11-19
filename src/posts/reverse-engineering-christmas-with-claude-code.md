@@ -6,10 +6,8 @@ date: "2025-11-19"
 <img src="/hallmark.jpg" style="float: right; max-width: 200px; border-radius: 8px; margin-left: 2em">
 
 <div class="intro">
-    For marriage-related reasons I required a list of Hallmark Christmas movies.
+    For marriage-related reasons I wanted a list of Hallmark Christmas movies.
 </div>
-
-I don't understand it, they're terrible films. But I swore an oath or what-have-you.
 
 - **Option 1**: copy/paste movie listings from one of several websites.
 - **Option 2**: spend $20 on an LLM and *(1)* [boil a puddle](https://www.google.com/search?client=firefox-b-d&q=ai+is+boiling+the+ocean) ✊ *(2)* reverse engineer an Android app for fun.
