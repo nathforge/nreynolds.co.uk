@@ -3,20 +3,20 @@ title: "🎄 Reverse engineering Christmas with Claude Code"
 date: "2025-11-19"
 ---
 
-For marriage-related reasons I needed a list of Hallmark Christmas movies.
+<img src="/hallmark.jpg" style="float: right; max-width: 200px; border-radius: 8px; margin-left: 2em">
+
+**For marriage-related reasons I required a list of Hallmark Christmas movies.**
 
 I don't understand it, they're terrible films. But I swore an oath or what-have-you.
 
-- **Option 1:** copy/paste movie listings from one of several websites.
-- **Option 2:** spend $20 on an LLM and:
-  * [Boil a puddle](https://www.google.com/search?client=firefox-b-d&q=ai+is+boiling+the+ocean) (✊)
-  * Reverse engineer an Android app for fun.
+- **Option 1**: copy/paste movie listings from one of several websites.
+- **Option 2**: spend $20 on an LLM and *(1)* [boil a puddle](https://www.google.com/search?client=firefox-b-d&q=ai+is+boiling+the+ocean) ✊ *(2)* reverse engineer an Android app for fun.
 
 <p>&nbsp;</p>
 
-<img src="/d4e57d40-3b2a-445c-afa3-c869dae9fde1.png" style="float: right; max-width: 200px; border-radius: 8px; margin-left: 2em">
+<img src="/pucking-fuddles.jpg" style="float: right; max-width: 200px; border-radius: 8px; margin-left: 2em">
 
-**Given my aversion to unboiled puddles *the choice is clear.*** Let’s grab the [Hallmark APK](https://www.google.com/search?q=hallmark+movie+checklist+apk+download) and have at it.
+**Given my aversion to unboiled puddles - *the choice is clear.*** Let’s grab the [Hallmark APK](https://www.google.com/search?q=hallmark+movie+checklist+apk+download) and have at it.
 
 <aside>
 <div class="aside-icon">❓</div>
