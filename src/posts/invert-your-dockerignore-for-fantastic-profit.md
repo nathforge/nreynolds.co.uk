@@ -49,9 +49,9 @@ On the right we're explicit about what we *do* want.
 
 ## Why?
 
- 1. **Easier to reason about**.
- 2. **Slow builds**. More content in your Docker context == slower builds.
- 3. **Slow deployments**. Both during the build, and when nodes pull images.
+ 1. **Easier to reason about**. We have tools like [dive](https://github.com/wagoodman/dive) to explore image bloat, maybe we'll run it once in a while. Alternatively, be explicit about what you want.
+ 2. **Slower builds**. More content in your Docker context makes for slower builds.
+ 3. **Slower deployments** during build push and node pull.
  4. **Improved security**. Less chance of unexpected files appearing in your images.
 
 **You will still need some ignore rules**, e.g for `__pycache__` directories. You can layer those on afterwards though.
