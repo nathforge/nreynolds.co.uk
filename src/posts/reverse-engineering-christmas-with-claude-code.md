@@ -42,9 +42,9 @@ Here's what actually happened:
 > Hey Claude, I want to reverse engineer this Android app for which I lost the source code 😉.
 > The xapk is in this directory. Give me readable code to work with.
 
-It output Java files! (I expected [Smali](https://www.google.com/search?q=smali+code) but it ran a [decompiler](https://github.com/skylot/jadx) 👌)
+Kablam, it created some Java files! I expected [Smali](https://www.google.com/search?q=smali+code) but it ran a [decompiler](https://github.com/skylot/jadx) 👌
 
-The files are obfuscated - minified names etc. That’s fine, it takes longer to sift through but still achievable.
+The files are obfuscated - minified names etc. That’s fine, it takes longer to read through but still achievable.
 
 _Or_ - throw an LLM at it.
 
