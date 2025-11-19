@@ -7,7 +7,7 @@ For marriage-related reasons I needed a CSV of Hallmark Christmas movies.
 
 I don't understand it, they're terrible films. But I swore an oath or what-have-you.
 
-- **Option 1:** copy/paste from one of many websites.
+- **Option 1:** copy/paste movie listings from one of several websites.
 - **Option 2:** spend $20 on an LLM and:
   * [Boil a puddle](https://www.google.com/search?client=firefox-b-d&q=ai+is+boiling+the+ocean) (✊)
   * Reverse engineer an Android app for fun.
