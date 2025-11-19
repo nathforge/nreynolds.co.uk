@@ -42,8 +42,6 @@ Here's what I actually done:
 > Hey Claude, I want to reverse engineer this Android app for which I lost the source code 😉.
 > The xapk is in this directory. Give me readable code to work with.
 
-<p>&nbsp;</p>
-
 It output Java files! (I expected [Smali](https://www.google.com/search?q=smali+code) but it ran a [decompiler](https://github.com/skylot/jadx) 👌)
 
 The files are obfuscated - minified names etc. That’s fine, it takes longer but no match for someone with plentiful free time.
@@ -76,7 +74,7 @@ Reader, **it smashed it**:
 - “The API expects name and surname instead of firstName and lastName”
 - “The signup endpoint is working successfully! Let me create an enhanced version of the script with better documentation and add a confirmation script as well”
 
-<p>&nbsp;</p>
+<hr/>
 
 <aside>
 <div class="aside-icon">🤔</div>
@@ -86,8 +84,6 @@ Reader, **it smashed it**:
     
 </div>
 </aside>
-
-<p>&nbsp;</p>
 
 > _Hey C-dog_: I’ve noticed the signup API returns a confirmation URL. Can we use that to complete signup? Provide a script that does so.
 
@@ -100,7 +96,7 @@ Reader, **it smashed it**:
 
 Neat.
 
-<p>&nbsp;</p>
+<hr/>
 
 > [That is fantastic, well done you](https://en.wikipedia.org/wiki/Roko%27s_basilisk). I've saved an access token to `token.txt`. Using this, can you write a script that lists movies?
 
