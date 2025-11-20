@@ -39,7 +39,7 @@
 
     <div class="mb-24 flex justify-center space-x-4">
       <a
-        href="https://github.com/nathforge/nreynolds.co.uk"
+        href="https://github.com/nathforge"
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center space-x-2 rounded-full bg-gray-900 px-4 py-2 text-white hover:bg-gray-800 transition opacity-50 hover:opacity-100"
