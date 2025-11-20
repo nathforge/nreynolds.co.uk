@@ -3,17 +3,19 @@ title: "🥂 Reverse engineering the Latitude app"
 date: "2025-08-04"
 ---
 
-**<a href="https://www.bbc.co.uk/news/uk-england-suffolk-38519169">The most middle class festival in Britain</a> happens to be my local.**
-
-Latitude has a phone app with a schedule, but it's pretty tedious to use. Give me a spreadsheet already!
+<p style="font-size: 120%">
+    <a href="https://www.latitudefestival.com/">Latitude Festival</a> has a phone app with a schedule, but it's pretty tedious to use. Give me a spreadsheet already!
+</p>
 
 ## To hacking
 
-Android apps are simpler to reverse than iOS though I don’t have an Android phone.
+Android apps are simpler to reverse than iOS, though I don’t have an Android phone.
 
-So to start I [downloaded the Latitude festival xapk](https://latitude-greencopper.en.aptoide.com/app).
+I [setup an Android emulator](https://developer.android.com/studio/run/emulator) - apparently they’re locked down these days and it's trickier to get root. An API 26 image worked for me, there’s probably other options I’m not aware of.
 
-I used [apktool](https://apktool.org/) to decompile the xapk to [Smali code](https://pysmali.readthedocs.io/en/latest/api/smali/language.html). Note there’s an outer xapk, and another apk inside that. I ran `apktool d` on both. This gives something semi-readable to look at.
+I then [downloaded and installed the Latitude festival xapk](https://latitude-greencopper.en.aptoide.com/app).
+
+Used [apktool](https://apktool.org/) to decompile the xapk to [Smali code](https://pysmali.readthedocs.io/en/latest/api/smali/language.html). There’s an outer `xapk` file, and an `apk` file inside that. I ran `apktool d` on both. This gives something semi-readable to look at.
 
 <aside>
     <div>
@@ -23,9 +25,7 @@ I used [apktool](https://apktool.org/) to decompile the xapk to [Smali code](htt
 
 I wanted to experiment with [frida-server](https://frida.re/docs/android/) - it’s a toolkit that lets you patch Android functions. Initially to monitor HTTPS traffic - I could maybe have used [mitmweb](https://www.mitmproxy.org/), but Frida came in handy later.
 
-I [setup an Android emulator](https://developer.android.com/studio/run/emulator) - apparently they’re locked down these days and it's trickier to get root. An API 26 image worked for me, there’s probably other options I’m not aware of.
-
-I ran this to start the Frida server:
+Started the Frida server on the emulator:
 
 ```shell
 adb push frida-server /data/local/tmp/
