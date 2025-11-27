@@ -49,11 +49,10 @@ On the right we're explicit about what we *do* want.
 
 ## Why?
 
- 1. **Easier to reason about**. We have tools like [dive](https://github.com/wagoodman/dive) to explore image bloat, maybe we even run it once in a while. Or&hellip; use default deny and be explicit about what you want.
- 2. **Slower builds**. More content in your Docker context makes for slower builds.
- 3. **Slower deployments** during build push and node pull.
- 4. **Improved security**. Less chance of unexpected files appearing in your images.
+ 1. **Easier to reason about**. This is the main thing for me. We have tools like [dive](https://github.com/wagoodman/dive) to explore image bloat, perhaps we even run it once in a while. Or&hellip; use default deny and be explicit about what you want.
+ 2. **Faster builds**: less content in your Docker context makes for faster builds.
+ 3. **Quicker deployments** during build push and node pull.
+ 4. **Improved security** - less chance of unexpected files appearing in your images - e.g `.env`, `.git`
 
-**You will still need some ignore rules**, e.g for `__pycache__` directories. You can layer those on afterwards though.
-
-Our tools don't make it easy to manage Docker context bloat. It takes intentional effort that I'd prefer to avoid.
+Our tools don't make it easy to manage Docker context bloat.<br>
+It takes intentional effort that I'd prefer to avoid.
