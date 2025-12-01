@@ -143,11 +143,10 @@
   }
 
   :global(.prose blockquote) {
-    background-color: #f3f4f6;
-    padding: 1em;
+    padding-left: 1em;
     margin-bottom: 1em;
-    border-radius: 0.5rem;
-    border-left: 4px solid #9ca3af;
+    border-radius: 6px;
+    border-left: 4px solid #ffb1de;
     white-space: pre-line;
   }
 
