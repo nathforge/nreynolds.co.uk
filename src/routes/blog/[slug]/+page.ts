@@ -1,29 +1,19 @@
 import { error } from "@sveltejs/kit";
-import type { ComponentType } from "svelte";
-
-interface PostMetadata {
-  title: string;
-  date: string;
-  description?: string;
-}
-
-interface PostModule {
-  default: ComponentType;
-  metadata: PostMetadata;
-}
+import { blogPosts } from "$lib/posts";
 
 export const load = async ({ params }: { params: { slug: string } }) => {
-  const posts = import.meta.glob("/src/posts/*.svx");
-  const postPath = `/src/posts/${params.slug}.svx`;
+  const post = await blogPosts.getPostBySlug(params.slug);
 
-  if (!posts[postPath]) {
+  if (!post) {
     throw error(404, `Post not found: ${params.slug}`);
   }
 
-  const post = (await posts[postPath]()) as PostModule;
-
   return {
-    content: post.default,
-    metadata: post.metadata,
+    content: post.content,
+    metadata: {
+      title: post.title,
+      date: post.date,
+      description: post.description,
+    },
   };
 };
