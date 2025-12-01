@@ -50,8 +50,7 @@
 			{#each weekdayNames as name (name)}
 				<div
 					class="flex items-center justify-center bg-gray-200 text-center text-sm font-medium text-gray-600"
-					style:background="linear-gradient(90deg, color-mix(in oklab,
-					var(--header-background-color), white 50%), var(--header-background-color))"
+					style:background="linear-gradient(90deg, color-mix(in oklab, var(--header-background-color), white 50%), var(--header-background-color))"
 				>
 					{name}
 				</div>
@@ -59,8 +58,7 @@
 			{#each hours as hour (hour)}
 				<div
 					class="flex items-center justify-center bg-gray-200 text-center text-xs font-medium text-gray-600"
-					style:background="linear-gradient(180deg, color-mix(in oklab,
-					var(--header-background-color), white 50%), var(--header-background-color))"
+					style:background="linear-gradient(180deg, color-mix(in oklab, var(--header-background-color), white 50%), var(--header-background-color))"
 				>
 					{#if hour == 6}
 						<!-- Earliest opening is 6:30 -->

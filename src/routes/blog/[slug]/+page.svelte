@@ -36,7 +36,7 @@
   </header>
 
   <div class="prose prose-lg max-w-none">
-    {@render data.content()}
+    <data.content />
   </div>
 
   <footer class="footer mt-12 pt-6">
