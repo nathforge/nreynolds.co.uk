@@ -76,7 +76,7 @@ This attempted to hook the Latitude app every 0.5 seconds. I could then clear ap
 🤫 <div>To reset the app state I ran <code>adb shell pm clear com.greencopper.android.latitude</code></div>
 </aside>
 
-Amongst other things it output https://content.greencopper.net/latitude-2025/9900587ec9b348da850a206f80ee39bd/content/content_v287.zip
+The most interesting URL was https://content.greencopper.net/latitude-2025/9900587ec9b348da850a206f80ee39bd/content/content_v287.zip
 
 This URL can't be found in the codebase, we'll see why soon.
 
