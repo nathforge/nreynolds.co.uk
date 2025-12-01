@@ -32,9 +32,7 @@
           </h1>
         </div>
       </div>
-      <p class="mt-2 text-gray-600">
-        A bunch of stuff, mostly for me. But hello 👋
-      </p>
+      <p class="mt-2 text-gray-600">Some stuff, mostly for me. But hello 👋</p>
     </div>
 
     <div class="mb-24 flex justify-center space-x-4">
