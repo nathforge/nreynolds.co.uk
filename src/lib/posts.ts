@@ -22,14 +22,16 @@ export class Posts {
       Object.entries(this.postFiles)
         .filter(([path]) => path.startsWith(this.directory))
         .map(async ([path, resolver]) => {
-          const module = (await resolver()) as { metadata: { title: string; date: string; description?: string } };
+          const module = (await resolver()) as {
+            metadata: { title: string; date: string; description?: string };
+          };
           const slug = path.split("/").pop()?.replace(".svx", "") || "";
 
           return {
             slug,
             ...module.metadata,
           };
-        })
+        }),
     );
 
     return posts;
@@ -55,4 +57,4 @@ export class Posts {
   }
 }
 
-export const blogPosts = new Posts("/src/posts");
+export const blogPosts = new Posts("/src/posts/blog");
