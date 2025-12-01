@@ -12,7 +12,7 @@ interface PostModule {
   metadata: PostMetadata;
 }
 
-export const load = async ({ params }) => {
+export const load = async ({ params }: { params: { slug: string } }) => {
   const posts = import.meta.glob("/src/posts/*.svx");
   const postPath = `/src/posts/${params.slug}.svx`;
 
