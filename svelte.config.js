@@ -10,7 +10,7 @@ const config = {
   preprocess: [
     vitePreprocess(),
     mdsvex({
-      extensions: [".md"],
+      extensions: [".svx"],
       highlight: {
         highlighter: async (code, lang = "text") => {
           const html = await codeToHtml(code, {
@@ -23,7 +23,7 @@ const config = {
       },
     }),
   ],
-  extensions: [".svelte", ".md"],
+  extensions: [".svelte", ".svx"],
 
   kit: {
     // adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.

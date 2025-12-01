@@ -18,8 +18,11 @@ I then [downloaded and installed the Latitude festival xapk](https://latitude-gr
 Used [apktool](https://apktool.org/) to decompile the xapk to [Smali code](https://pysmali.readthedocs.io/en/latest/api/smali/language.html). There’s an outer `xapk` file, and an `apk` file inside that. I ran `apktool d` on both. This gives something semi-readable to look at.
 
 <aside>
+    ❓
     <div>
-<a href="https://github.com/skylot/jadx">jadx</a> provides more readable Java output but it can’t decompile everything. Having both Smali and Java can be handy however.
+
+[jadx](https://github.com/skylot/jadx) provides more readable Java output but it can’t decompile everything. Having both Smali and Java can be handy however.
+
     </div>
 </aside>
 

@@ -13,8 +13,8 @@ interface PostModule {
 }
 
 export const load = async ({ params }) => {
-  const posts = import.meta.glob("/src/posts/*.md");
-  const postPath = `/src/posts/${params.slug}.md`;
+  const posts = import.meta.glob("/src/posts/*.svx");
+  const postPath = `/src/posts/${params.slug}.svx`;
 
   if (!posts[postPath]) {
     throw error(404, `Post not found: ${params.slug}`);

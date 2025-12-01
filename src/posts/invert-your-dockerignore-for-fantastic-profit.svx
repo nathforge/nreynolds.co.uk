@@ -23,7 +23,6 @@ node_modules
 Dockerfile
 eslint.config.js
 mise.toml
-
 ```
 
   </section>

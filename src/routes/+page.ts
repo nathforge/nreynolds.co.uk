@@ -11,11 +11,11 @@ interface PostModule {
 }
 
 export const load = async () => {
-  const postFiles = import.meta.glob("/src/posts/*.md");
+  const postFiles = import.meta.glob("/src/posts/*.svx");
   const posts = await Promise.all(
     Object.entries(postFiles).map(async ([path, resolver]) => {
       const { metadata } = (await resolver()) as PostModule;
-      const slug = path.split("/").pop()?.replace(".md", "") || "";
+      const slug = path.split("/").pop()?.replace(".svx", "") || "";
 
       return {
         slug,
