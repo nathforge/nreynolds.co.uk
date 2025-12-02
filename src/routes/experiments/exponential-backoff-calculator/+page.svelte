@@ -15,8 +15,15 @@
 
   let results = $derived(calculateBackoff(cap, base, maxAttempts));
 
-  let codeString = $derived(
-    `
+  let codeString = $derived.by(() => {
+    let durationString = `${base || 0} * 2 ** attempt`;
+    if (cap) {
+      durationString = `min(${cap}, ${durationString})`;
+    }
+    if (jitter) {
+      durationString = `${cap ? durationString : `(${durationString})`} * Math.random()`;
+    }
+    return `
 const maxAttempts = ${maxAttempts};
 for (let attempt = 0; attempt < maxAttempts; attempt++) {
   if (doSomething()) {
@@ -26,10 +33,10 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
   // Sleep between attempts.
   const isLastAttempt = attempt == maxAttempts - 1;
   if (!isLastAttempt) {
-    sleep(${cap ? `min(${cap || 0}, ${base || 0} * 2 ** attempt))` : `sleep(${base || 0} * 2 ** attempt`}${jitter ? " * Math.random()" : ""});
+    sleep(${durationString});
   }
-}`.trim(),
-  );
+}`.trim();
+  });
 
   let highlightedCode = $state("");
 
