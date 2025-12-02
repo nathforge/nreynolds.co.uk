@@ -52,7 +52,7 @@
 
   <div class="prose prose-lg max-w-none mb-10">
     <p>
-      Calculator for exponential backoff without jitter. See <a
+      Calculate exponential backoff without jitter. See <a
         href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/"
         >the AWS post</a
       >.
