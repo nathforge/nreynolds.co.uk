@@ -1,28 +1,28 @@
 <script lang="ts">
   import Header from "$lib/components/Header.svelte";
 
-  let cap = 5;
+  let cap = 30;
   let base = 2;
-  let maxAttempts = 5;
+  let maxAttempts = 10;
 
   interface BackoffResult {
     attempt: number;
-    delay: number;
-    totalDelay: number;
+    delay: number | undefined;
+    totalDelay: number | undefined;
   }
 
   // TODO: Use runes
   $: results = calculateBackoff(cap, base, maxAttempts);
 
   function calculateBackoff(
-    capSeconds: number,
-    baseNumber: number,
+    cap: number,
+    base: number,
     attempts: number,
   ): BackoffResult[] {
     const results: BackoffResult[] = [];
     let totalDelay = 0;
     for (let attempt = 0; attempt < attempts; attempt++) {
-      const delay = capSeconds * baseNumber ** attempt;
+      const delay = Math.min(cap, base * 2 ** attempt);
       totalDelay += delay;
       if (attempt === attempts - 1) {
         results.push({ attempt, delay: undefined, totalDelay: undefined });
@@ -57,6 +57,10 @@
         >the AWS post</a
       >.
     </p>
+    <pre>
+for attempt in 0 to attempts-1:
+  do_something_successful or sleep(min(cap, base * 2 ** attempt))
+    </pre>
   </div>
 
   <form class="controls">
