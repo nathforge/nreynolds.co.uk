@@ -50,17 +50,22 @@
 <div class="container mx-auto max-w-3xl px-4 py-8">
   <Header title="Exponential Backoff Calculator" />
 
-  <div class="prose prose-lg max-w-none mb-10">
+  <div class="prose prose-lg max-w-none">
     <p>
       Calculate exponential backoff without jitter. See <a
         href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/"
         >the AWS post</a
       >.
     </p>
-    <pre>
-for attempt in 0 to attempts-1:
-  do_something_successful or sleep(min(cap, base * 2 ** attempt))
-    </pre>
+    <pre>maxAttempts = {maxAttempts}
+for (attempt = 0; attempt {"<"} maxAttempts; attempt++) {"{"}
+  if (!doSomething()) {"{"}
+    isLastAttempt = attempt = maxAttempts - 1;
+    if (!isLastAttempt) {"{"}
+      sleep(min(cap, base * 2 ** attempt))
+    }
+  }
+}</pre>
   </div>
 
   <form class="controls">
