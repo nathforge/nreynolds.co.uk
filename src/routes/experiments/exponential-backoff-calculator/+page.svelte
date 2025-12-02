@@ -5,6 +5,7 @@
   let cap = $state(30);
   let base = $state(2);
   let maxAttempts = $state(10);
+  let jitter = $state(true);
 
   interface BackoffResult {
     attempt: number;
@@ -25,7 +26,7 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
   // Sleep between attempts.
   const isLastAttempt = attempt == maxAttempts - 1;
   if (!isLastAttempt) {
-    ${cap ? `sleep(min(${cap || 0}, ${base || 0} * 2 ** attempt))` : `sleep(${base || 0} * 2 ** attempt)`};
+    sleep(${cap ? `min(${cap || 0}, ${base || 0} * 2 ** attempt))` : `sleep(${base || 0} * 2 ** attempt`}${jitter ? " * Math.random()" : ""});
   }
 }`.trim(),
   );
@@ -82,12 +83,20 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
 
   <div class="prose prose-lg max-w-none mb-12">
     <p>
-      Calculate exponential backoff without jitter. See <a
+      Calculate exponential backoff. See <a
         href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/"
         >the AWS post</a
       >.
     </p>
-    {@html highlightedCode}
+    <div class="code-block-container">
+      <div class="code-options">
+        <label class="jitter-checkbox">
+          <input type="checkbox" bind:checked={jitter} />
+          With jitter
+        </label>
+      </div>
+      {@html highlightedCode}
+    </div>
   </div>
 
   <form class="controls">
@@ -160,6 +169,38 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
     border-radius: 4px;
     font-size: 1rem;
     width: 150px;
+  }
+
+  .code-block-container {
+    margin-top: 1em;
+  }
+
+  .code-options {
+    background-color: #0d1117;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem 0.375rem 0 0;
+    border-bottom: 1px solid #30363d;
+  }
+
+  .jitter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #e6edf3;
+    font-size: 0.875rem;
+    font-weight: normal;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .jitter-checkbox input[type="checkbox"] {
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .code-block-container :global(pre) {
+    border-radius: 0 0 0.375rem 0.375rem;
+    margin-top: 0;
   }
 
   .results {
