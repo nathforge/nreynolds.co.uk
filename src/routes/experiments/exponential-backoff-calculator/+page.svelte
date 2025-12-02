@@ -94,7 +94,7 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
     <p>
       Calculate exponential backoff parameters and the maximum delay. See <a
         href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/"
-        >the AWS post</a
+        >this AWS post</a
       >.
     </p>
   </div>
