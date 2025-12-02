@@ -25,7 +25,7 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
   // Sleep between attempts.
   const isLastAttempt = attempt = maxAttempts - 1;
   if (!isLastAttempt) {
-    sleep(min(${cap || 0}, ${base || 0} * 2 ** attempt))
+    ${cap ? `sleep(min(${cap || 0}, ${base || 0} * 2 ** attempt))` : `sleep(${base || 0} * 2 ** attempt)`}
   }
 }`.trim(),
   );
@@ -46,7 +46,9 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
     const results: BackoffResult[] = [];
     let totalDelay = 0;
     for (let attempt = 0; attempt < attempts; attempt++) {
-      const delay = Math.min(cap, base * 2 ** attempt);
+      const delay = cap
+        ? Math.min(cap, base * 2 ** attempt)
+        : base * 2 ** attempt;
       totalDelay += delay;
       if (attempt === attempts - 1) {
         results.push({ attempt, delay: undefined, totalDelay: undefined });
