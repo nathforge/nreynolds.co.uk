@@ -95,7 +95,7 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
     </div>
 
     <div class="form-group">
-      <label for="base">Base</label>
+      <label for="base">Base (seconds)</label>
       <input id="base" type="number" bind:value={base} min="1" step="0.1" />
     </div>
 
@@ -125,7 +125,7 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
           <tr>
             <td>{result.attempt}</td>
             <td>{result.delay ? formatTime(result.delay) : "n/a"}</td>
-            <td>{result.delay ? formatTime(result.totalDelay) : "n/a"}</td>
+            <td>{result.totalDelay ? formatTime(result.totalDelay) : "n/a"}</td>
           </tr>
         {/each}
       </tbody>
