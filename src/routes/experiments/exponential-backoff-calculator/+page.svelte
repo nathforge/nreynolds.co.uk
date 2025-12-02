@@ -23,9 +23,9 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
   }
 
   // Sleep between attempts.
-  const isLastAttempt = attempt = maxAttempts - 1;
+  const isLastAttempt = attempt == maxAttempts - 1;
   if (!isLastAttempt) {
-    ${cap ? `sleep(min(${cap || 0}, ${base || 0} * 2 ** attempt))` : `sleep(${base || 0} * 2 ** attempt)`}
+    ${cap ? `sleep(min(${cap || 0}, ${base || 0} * 2 ** attempt))` : `sleep(${base || 0} * 2 ** attempt)`};
   }
 }`.trim(),
   );
