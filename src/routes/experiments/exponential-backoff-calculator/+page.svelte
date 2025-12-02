@@ -87,25 +87,16 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
   <title>⏱️ Exponential Backoff Calculator</title>
 </svelte:head>
 
-<div class="container mx-auto max-w-3xl px-4 py-8">
+<div class="container mx-auto max-w-3xl px-4 py-8 prose prose-lg">
   <Header title="Exponential Backoff Calculator" />
 
-  <div class="prose prose-lg max-w-none mb-12">
+  <div class="max-w-none mb-12">
     <p>
       Calculate exponential backoff. See <a
         href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/"
         >the AWS post</a
       >.
     </p>
-    <div class="code-block-container">
-      <div class="code-options">
-        <label class="jitter-checkbox">
-          <input type="checkbox" bind:checked={jitter} />
-          With jitter <em>(recommended when you have multiple workers)</em>
-        </label>
-      </div>
-      {@html highlightedCode}
-    </div>
   </div>
 
   <form class="controls">
@@ -162,6 +153,17 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
         {/each}
       </tbody>
     </table>
+  </div>
+
+  <h2>Code sample</h2>
+  <div class="code-block-container">
+    <div class="code-options">
+      <label class="jitter-checkbox">
+        <input type="checkbox" bind:checked={jitter} />
+        With jitter <em>(recommended when you have multiple workers)</em>
+      </label>
+    </div>
+    {@html highlightedCode}
   </div>
 </div>
 
