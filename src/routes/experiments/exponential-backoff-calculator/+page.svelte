@@ -122,6 +122,21 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
     </div>
   </form>
 
+  <details class="code-sample-section">
+    <summary>
+      <h2>Code sample</h2>
+    </summary>
+    <div class="code-block-container">
+      <div class="code-options">
+        <label class="jitter-checkbox">
+          <input type="checkbox" bind:checked={jitter} />
+          With jitter <em>(recommended when you have multiple workers)</em>
+        </label>
+      </div>
+      {@html highlightedCode}
+    </div>
+  </details>
+
   <div class="results">
     <table>
       <thead>
@@ -154,22 +169,39 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
       </tbody>
     </table>
   </div>
-
-  <hr />
-
-  <h2>Code sample</h2>
-  <div class="code-block-container">
-    <div class="code-options">
-      <label class="jitter-checkbox">
-        <input type="checkbox" bind:checked={jitter} />
-        With jitter <em>(recommended when you have multiple workers)</em>
-      </label>
-    </div>
-    {@html highlightedCode}
-  </div>
 </div>
 
 <style>
+  .code-sample-section {
+    margin-bottom: 2rem;
+  }
+
+  .code-sample-section summary {
+    cursor: pointer;
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+
+  .code-sample-section summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .code-sample-section summary h2 {
+    display: inline;
+    margin: 0;
+  }
+
+  .code-sample-section summary::before {
+    content: "▶ ";
+    display: inline-block;
+    transition: transform 0.2s;
+    margin-right: 0.5rem;
+  }
+
+  .code-sample-section[open] summary::before {
+    transform: rotate(90deg);
+  }
+
   .controls {
     display: flex;
     gap: 1.5rem;
