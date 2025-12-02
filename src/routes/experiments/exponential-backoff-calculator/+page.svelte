@@ -63,7 +63,11 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
     }
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes}m ${remainingSeconds.toFixed(2)}s`;
+    const remainingSecondsStr =
+      remainingSeconds === Math.round(remainingSeconds)
+        ? remainingSeconds.toString()
+        : remainingSeconds.toFixed(2);
+    return `${minutes}m ${remainingSecondsStr}s`;
   }
 </script>
 
