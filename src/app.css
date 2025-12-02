@@ -11,3 +11,170 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Prose styles for content */
+.prose {
+  color: #374151;
+}
+
+.prose h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.prose h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose h3 {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.prose p {
+  margin-bottom: 1em;
+  line-height: 1.75;
+}
+
+.prose ul,
+.prose ol {
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+  display: list-item;
+}
+
+.prose li > ul,
+.prose li > ol {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.prose pre {
+  padding: 1em;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+
+.prose code {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  padding: 0.125em 0.25em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 1em;
+  color: #e6edf3; /* Light text for dark background when no syntax highlighting */
+}
+
+.prose strong {
+  font-weight: bold;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
+}
+
+.prose blockquote {
+  padding-left: 1em;
+  margin-bottom: 1em;
+  border-radius: 6px;
+  border-left: 4px solid #ffb1de;
+  white-space: pre-line;
+}
+
+.prose blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.prose aside {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  background: linear-gradient(to bottom right, #faf5ff, #fce7f3);
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 0.5rem;
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.prose aside .aside-icon {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  font-size: 1.5em;
+}
+
+.prose aside > :not(.aside-icon) {
+  grid-column: 2;
+}
+
+.prose aside > :last-child {
+  margin-bottom: 0;
+}
+
+.prose aside a {
+  color: #2563eb;
+  text-decoration: underline;
+  pointer-events: auto;
+}
+
+.prose aside a:hover {
+  color: #1d4ed8;
+}
+
+.prose hr {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+.prose .intro {
+  background: linear-gradient(135deg, #eff6ff, #f3e8ff);
+  padding: 1.5em;
+  border-radius: 0.5rem;
+  font-size: 1.1em;
+  margin-top: 2em;
+  margin-bottom: 1.5em;
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.prose .intro > :last-child {
+  margin-bottom: 0;
+}

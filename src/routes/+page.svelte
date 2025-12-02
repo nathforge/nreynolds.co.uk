@@ -8,6 +8,10 @@
       url: "/experiments/dishwasher-timer",
     },
     {
+      title: "⏱️ Exponential backoff calculator",
+      url: "/experiments/exponential-backoff-calculator",
+    },
+    {
       title: "💪 Nuffield Gym Activity",
       subtitle: "Activity heatmap for Nuffield Norwich Gym.",
       url: "/experiments/nuffield-activity",
