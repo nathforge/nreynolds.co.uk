@@ -23,6 +23,7 @@
     if (jitter) {
       durationString = `${cap ? durationString : `(${durationString})`} * Math.random()`;
     }
+
     return `
 const maxAttempts = ${maxAttempts};
 for (let attempt = 0; attempt < maxAttempts; attempt++) {
@@ -99,7 +100,7 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
       <div class="code-options">
         <label class="jitter-checkbox">
           <input type="checkbox" bind:checked={jitter} />
-          With jitter
+          With jitter <em>(recommended when you have multiple workers)</em>
         </label>
       </div>
       {@html highlightedCode}
