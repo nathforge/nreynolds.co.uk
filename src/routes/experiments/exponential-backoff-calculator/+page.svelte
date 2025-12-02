@@ -1,9 +1,10 @@
 <script lang="ts">
   import Header from "$lib/components/Header.svelte";
+  import { highlightCode } from "$lib/highlight";
 
-  let cap = 30;
-  let base = 2;
-  let maxAttempts = 10;
+  let cap = $state(30);
+  let base = $state(2);
+  let maxAttempts = $state(10);
 
   interface BackoffResult {
     attempt: number;
@@ -11,8 +12,31 @@
     totalDelay: number | undefined;
   }
 
-  // TODO: Use runes
-  $: results = calculateBackoff(cap, base, maxAttempts);
+  let results = $derived(calculateBackoff(cap, base, maxAttempts));
+
+  let codeString = $derived(
+    `
+const maxAttempts = ${maxAttempts};
+for (let attempt = 0; attempt < maxAttempts; attempt++) {
+  if (doSomething()) {
+    break;
+  }
+
+  // Sleep between attempts.
+  const isLastAttempt = attempt = maxAttempts - 1;
+  if (!isLastAttempt) {
+    sleep(min(${cap || 0}, ${base || 0} * 2 ** attempt))
+  }
+}`.trim(),
+  );
+
+  let highlightedCode = $state("");
+
+  $effect(() => {
+    highlightCode(codeString, "javascript").then((html) => {
+      highlightedCode = html;
+    });
+  });
 
   function calculateBackoff(
     cap: number,
@@ -50,22 +74,14 @@
 <div class="container mx-auto max-w-3xl px-4 py-8">
   <Header title="Exponential Backoff Calculator" />
 
-  <div class="prose prose-lg max-w-none">
+  <div class="prose prose-lg max-w-none mb-12">
     <p>
       Calculate exponential backoff without jitter. See <a
         href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/"
         >the AWS post</a
       >.
     </p>
-    <pre>maxAttempts = {maxAttempts}
-for (attempt = 0; attempt {"<"} maxAttempts; attempt++) {"{"}
-  if (!doSomething()) {"{"}
-    isLastAttempt = attempt = maxAttempts - 1;
-    if (!isLastAttempt) {"{"}
-      sleep(min(cap, base * 2 ** attempt))
-    }
-  }
-}</pre>
+    {@html highlightedCode}
   </div>
 
   <form class="controls">
