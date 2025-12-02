@@ -92,7 +92,7 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
 
   <div class="max-w-none mb-12">
     <p>
-      Calculate exponential backoff. See <a
+      Calculate exponential backoff parameters, and worst-case delay. See <a
         href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/"
         >the AWS post</a
       >.
@@ -128,14 +128,14 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
         <tr>
           <th>Attempt</th>
           <th>
-            Delay on failure
+            Max. delay on failure
             <span
               class="help-icon"
               title="How long to wait if this attempt fails">ⓘ</span
             >
           </th>
           <th
-            >Total delay on failure
+            >Max. total delay on failure
             <span
               class="help-icon"
               title="How long we'll have waited up to this point">ⓘ</span
