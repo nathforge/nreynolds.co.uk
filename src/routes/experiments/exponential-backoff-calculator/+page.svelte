@@ -155,6 +155,8 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
     </table>
   </div>
 
+  <hr />
+
   <h2>Code sample</h2>
   <div class="code-block-container">
     <div class="code-options">
