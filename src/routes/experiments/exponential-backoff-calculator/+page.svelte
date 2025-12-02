@@ -68,17 +68,18 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
     return results;
   }
 
-  function formatTime(seconds: number): string {
-    if (seconds < 60) {
-      return `${seconds.toFixed(2)}s`;
+  function formatTime(totalSeconds: number): string {
+    const seconds = totalSeconds % 60;
+    const secondsStr = Number.isInteger(seconds)
+      ? seconds.toString()
+      : seconds.toFixed(2);
+
+    if (totalSeconds < 60) {
+      return `${secondsStr}s`;
     }
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    const remainingSecondsStr =
-      remainingSeconds === Math.round(remainingSeconds)
-        ? remainingSeconds.toString()
-        : remainingSeconds.toFixed(2);
-    return `${minutes}m ${remainingSecondsStr}s`;
+
+    const minutes = Math.floor(totalSeconds / 60);
+    return `${minutes}m ${secondsStr}s`;
   }
 </script>
 
@@ -135,8 +136,20 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
       <thead>
         <tr>
           <th>Attempt</th>
-          <th>Delay on failure</th>
-          <th>Total delay on failure</th>
+          <th>
+            Delay on failure
+            <span
+              class="help-icon"
+              title="How long to wait if this attempt fails">ⓘ</span
+            >
+          </th>
+          <th
+            >Total delay on failure
+            <span
+              class="help-icon"
+              title="How long we'll have waited up to this point">ⓘ</span
+            ></th
+          >
         </tr>
       </thead>
       <tbody>
@@ -202,7 +215,6 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
   }
 
   .jitter-checkbox input[type="checkbox"] {
-    cursor: pointer;
     margin: 0;
   }
 
@@ -238,6 +250,14 @@ for (let attempt = 0; attempt < maxAttempts; attempt++) {
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
+  }
+
+  .help-icon {
+    display: inline-block;
+    margin-left: 0.25rem;
+    font-size: 0.9rem;
+    text-transform: none;
+    opacity: 0.7;
   }
 
   tbody tr:hover {
