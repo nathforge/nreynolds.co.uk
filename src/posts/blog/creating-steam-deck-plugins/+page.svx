@@ -190,7 +190,6 @@ Logs are stored in `~/homebrew/logs`
 
 ## This is a work in progress. To do:
 
-- Live reload of backend and frontend.
 - Bidirectional comms between backend and frontend with timeouts.
 - PRs for:
     - Mac `--chmod` fixes for Decky CLI and VSCode tasks.
