@@ -195,4 +195,7 @@ Logs are stored in `~/homebrew/logs`
 - PRs for:
     - Mac `--chmod` fixes for Decky CLI and VSCode tasks.
     - Refactor plugin template tasks into scripts usable outside of VSCode.
+- Implement an actual backend/frontend, including a binary backend.
+- Notes on populating py_modules.
+- Automated testing.
 - Document the store publishing flow.
