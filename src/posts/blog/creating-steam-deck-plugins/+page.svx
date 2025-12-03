@@ -142,6 +142,26 @@ To temporarily uninstall plugins you can rename the `homebrew/plugins` directory
 
 ## Quality of life improvements
 
+### Hot reloading
+
+[This Discord thread](https://discord.com/channels/960281551428522045/1138189976702570666) shows how to enable hot reloading of your plugin - no need to restart Decky.
+
+tl;dr:
+ * `sudo systemctl edit plugin_loader.service`
+ * Add `Environment=LIVE_RELOAD=1`. Save and exit.
+ * `sudo systemctl restart plugin_loader.service`
+ * Ensure your plugin.json has `debug` in the `flags`.
+ * Deploy a change. You may need to wait an amount of time, or exit and re-enter your plugin UI.
+
+<aside>
+🤔
+<div>
+
+Could the plugin show a notification when the backend or frontend has reloaded?
+
+</div>
+</aside>
+
 ### Running tasks in the terminal
 
 I’m not a fan of VSCode tasks, preferring to use the CLI. Unfortunately the VSCode tasks aren’t available as standalone scripts.
