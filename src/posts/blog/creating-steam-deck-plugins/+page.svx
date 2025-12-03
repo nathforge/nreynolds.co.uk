@@ -20,7 +20,7 @@ date: "2025-12-03"
     - Clone this to create a plugin.
     - It has VSCode config. My advice - start with VSCode, experiment with a custom setup later.
 - [Plugin dev CLI](https://github.com/SteamDeckHomebrew/cli)
-    - The VSCode config installs & uses this CLI. If you’re not using VSCode, make sure that `decky plugin build` can always build your plugin. Otherwise *you will not be able to distribute it on the store* - `decky plugin build` is part of their deployment process.
+    - The VSCode config installs & uses this CLI. If you’re not using VSCode, make sure that `decky plugin build` continues to work. Otherwise *you will not be able to distribute it on the store* - `decky plugin build` is part of their deployment process.
 - [Wiki](https://wiki.deckbrew.xyz/)
     - [Getting started](https://wiki.deckbrew.xyz/plugin-dev/getting-started)
 - [Discord](https://discord.com/invite/U88fbeHyzt) channels (if invite expired check [their site](https://decky.xyz/))
@@ -198,3 +198,4 @@ Logs are stored in `~/homebrew/logs`
 - Notes on populating py_modules.
 - Automated testing.
 - Document the store publishing flow.
+- Revisit using a blog page for this, it's pretty painful.
