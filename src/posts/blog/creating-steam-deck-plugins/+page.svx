@@ -132,9 +132,9 @@ Open Decky via the quick access menu and your plugin should be listed!
 🤔
 
 An unrelated plugin caused me issues with this step.<br>
-**The restart via VSCode bought my fans to full-speed**. I had to hard restart the Deck via the power switch.<br>
-A quick fix was removing all plugins and redeploying mine.<br>
-To temporarily uninstall plugins you can rename the `homebrew/plugins` directory on your Deck.
+**It bought my fans to full-speed**. I had to hard restart the Deck via the power switch.<br>
+A quick fix was removing all plugins and redeploying mine;
+to temporarily uninstall plugins you can rename the `homebrew/plugins` directory on your Deck and restart Decky.
 
 </aside>
 
