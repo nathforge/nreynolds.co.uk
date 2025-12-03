@@ -49,7 +49,7 @@ Files:
 
 - `.vscode`*:* VSCode tasks to build & deploy to your Deck
 - `assets`*:* Static frontend asset files.
-- `backend`*: (optional)* Used for non-Python binaries built using Docker.
+- `backend`*: (optional)* Used for custom backend binaries, built using Docker.
 - `defaults`*:* These files are copied to the root of your built plugin.
 - `py_modules`*:* Extra Python modules, whether yours or third-party.
 - `src`*:* The frontend UI source.
