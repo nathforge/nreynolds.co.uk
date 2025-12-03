@@ -18,9 +18,9 @@ date: "2025-12-03"
 
 - [Plugin template](https://github.com/SteamDeckHomebrew/decky-plugin-template)
     - Clone this to create a plugin.
-    - It has VSCode config. It’s simpler to start out with VSCode - you can fiddle with a custom setup later.
+    - It has VSCode config. My advice - start with VSCode, experiment with a custom setup later.
 - [Plugin dev CLI](https://github.com/SteamDeckHomebrew/cli)
-    - The VSCode config installs & uses this CLI. But if you’re not using VSCode, make sure that `decky plugin build` can always build your plugin. Otherwise *you will not be able to distribute it on the store*.
+    - The VSCode config installs & uses this CLI. If you’re not using VSCode, make sure that `decky plugin build` can always build your plugin. Otherwise *you will not be able to distribute it on the store* - `decky plugin build` is part of their deployment process.
 - [Wiki](https://wiki.deckbrew.xyz/)
     - [Getting started](https://wiki.deckbrew.xyz/plugin-dev/getting-started)
 - [Discord](https://discord.com/invite/U88fbeHyzt) channels (if invite expired check [their site](https://decky.xyz/))
@@ -34,6 +34,8 @@ date: "2025-12-03"
 - Reverse engineering: [SteamTracking](https://github.com/SteamDatabase/SteamTracking)
 - *Bonus*:
     - [Plugin store source](https://github.com/SteamDeckHomebrew/decky-plugin-store): if you want to run your own store
+
+---
 
 ## Plugin structure
 
@@ -58,6 +60,8 @@ Files:
 - `rollup.config.js`*:* Config for frontend builds. See [rollup-preset-decky](https://github.com/SteamDeckHomebrew/rollup-preset-decky).
 - `tsconfig.json`*:* Typescript config.
 
+---
+
 ## Step-by-step
 
 We’ll get the dev environment working before making code changes.
@@ -70,8 +74,6 @@ Edit the plugin.json - change the name if you want, but Example Plugin is fine f
 
 Now build & deploy your plugin then restart Decky loader - see the next sections.
 
----
-
 ### Build
 
 Ensure Docker is installed and running.
@@ -81,8 +83,6 @@ Open the VSCode command palette (Ctrl/Cmd+Shift+P) → “Tasks: Run Task” →
 This will setup the Decky CLI if needed - press enter to continue. Press enter if it asks to remove the node_modules directory.
 
 You should now have a plugin zip in the `out` directory.
-
----
 
 ### Deploy
 
@@ -109,15 +109,14 @@ Open the VSCode command palette (Ctrl/Cmd+Shift+P) → “Tasks: Run Task” →
 <aside>
 🤷
 
-**rsync troubles**: on my Mac it complained about the `rsync` command, specifically `--chmod=D0755,F0755` syntax. I edited `.vscode/tasks.json` to use `--chmod=a=rwx,g=rx,o=rx`<br>
-Looking at the [Linux man page](https://linux.die.net/man/1/rsync), this is the more compatible option.<br>
+**rsync troubles**: on my Mac it complained about the `rsync` command, specifically `--chmod=D0755,F0755` syntax.<br>
+I edited `.vscode/tasks.json` to use `--chmod=a=rwx,g=rx,o=rx`<br>
+Looking at the [Linux man page](https://linux.die.net/man/1/rsync) this is a more compatible option.<br>
 (This issue is mentioned in [a Decky CLI pull request](https://github.com/SteamDeckHomebrew/cli/pull/8).)
 
 </aside>
 
----
-
-### Restarting Decky
+### Restart Decky
 
 We now need to restart Decky to see our new plugin.
 
@@ -134,7 +133,8 @@ Open Decky via the quick access menu and your plugin should be listed!
 
 An unrelated plugin caused me issues with this step.<br>
 **The restart via VSCode bought my fans to full-speed**. I had to hard restart the Deck via the power switch.<br>
-It was fixed by removing all plugins and redeploying mine. To temporarily uninstall plugins you can rename the `homebrew/plugins` directory on your Deck.
+A quick fix was removing all plugins and redeploying mine.<br>
+To temporarily uninstall plugins you can rename the `homebrew/plugins` directory on your Deck.
 
 </aside>
 
@@ -150,7 +150,7 @@ I’m not a fan of VSCode tasks, preferring to use the CLI. Unfortunately the VS
 😔
 <div>
 
-You may notice Decky CLI has a `decky plugin deploy` command. Unfortunately it has the same Mac `--chmod` issue as above, and issues with Deck file permissions.<br>
+You may notice Decky CLI has a `decky plugin deploy` command. Unfortunately it has the same Mac `--chmod` issue as above, and problems with Deck file permissions.<br>
 `decky plugin deploy` isn’t used by the VSCode task so I wonder if it’s abandoned…
 
 </div>
