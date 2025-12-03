@@ -99,7 +99,7 @@ Now edit your `.vscode/settings.json`.
 - `deckip`/`deckport`: SSH host/port of your Deck
 - `deckuser`: should stay as “deck”
 - `deckpass`: set this to the deckuser’s password. Required because plugin directories are owned by root, so deployment runs `sudo`.
-- `deckkey`: run `ls ~/.ssh/id_*` on your computer to verify your key filename. For example mine is `id_ed25519`. This filename must not have a `.pub` suffix.
+- `deckkey`: run `ls ~/.ssh/id_*` on your computer to verify your key filename. For example mine is `id_ed25519`. You'll have two files, *don't* use the one with the `.pub` suffix.
 - `deckdir`: should stay as /home/deck.
 - `pluginname`: if you’ve changed the plugin name in plugin.json, change it here to match.
 - `python.analysis.extraPaths`: Not used during deployment, it’s for typechecking in the editor.
