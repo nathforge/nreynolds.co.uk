@@ -27,7 +27,9 @@ date: "2025-12-03"
     - #plugin-dev
     - #plugin-knowledge-base
 - Community plugins
-    - [decky-plugin-database](https://github.com/SteamDeckHomebrew/decky-plugin-database/tree/main/plugins): everything you see in the store
+    - [decky-plugin-database](https://github.com/SteamDeckHomebrew/decky-plugin-database/tree/main/plugins)
+        - Every plugin in the store.
+        - Clone this repo then run `git submodule update --init --recursive` to download all plugins.
     - [NonSteamLaunchers-On-Steam-Deck](https://github.com/moraroy/NonSteamLaunchers-On-Steam-Deck)
 - Reverse engineering: [SteamTracking](https://github.com/SteamDatabase/SteamTracking)
 - *Bonus*:
@@ -144,15 +146,21 @@ It was fixed by removing all plugins and redeploying mine. To temporarily uninst
 
 I’m not a fan of VSCode tasks, preferring to use the CLI. Unfortunately the VSCode tasks aren’t available as standalone scripts.
 
-You may notice Decky CLI has a `decky plugin deploy` command. Unforutnately it has the same Mac `--chmod` issue as above, as well as issues with Deck file permissions. `decky plugin deploy` isn’t used by the VSCode task so I wonder if it’s abandoned…
+<aside>
+😔
+<div>
 
-(I’d like to see if they’ll accept a PR to refactor VSCode tasks into scripts.)
+You may notice Decky CLI has a `decky plugin deploy` command. Unfortunately it has the same Mac `--chmod` issue as above, and issues with Deck file permissions.<br>
+`decky plugin deploy` isn’t used by the VSCode task so I wonder if it’s abandoned…
+
+</div>
+</aside>
 
 For now I'm using [Mise](https://mise.jdx.dev/). Save this as `mise.toml`:
 
 <CodeFromFile src="/src/posts/blog/creating-steam-deck-plugins/assets/mise.toml" lang="toml" />
 
-You can now run e.g `mise builddeployrestart`. It re-uses the `.vscode/settings.json` file for config.
+You can now run e.g `mise builddeployrestart`. It pulls config from `.vscode/settings.json`.
 
 ## Log files
 
@@ -162,8 +170,9 @@ Logs are stored in `~/homebrew/logs`
 
 ## This is a work in progress. To do:
 
-- Live reload?
-- See about PRs for:
+- Live reload of backend and frontend.
+- Bidirectional comms between backend and frontend with timeouts.
+- PRs for:
     - Mac `--chmod` fixes for Decky CLI and VSCode tasks.
     - Refactor plugin template tasks into scripts usable outside of VSCode.
-- Document the publishing flow.
+- Document the store publishing flow.
