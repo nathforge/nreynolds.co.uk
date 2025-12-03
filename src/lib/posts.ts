@@ -25,7 +25,12 @@ export class Posts {
           const module = (await resolver()) as {
             metadata: { title: string; date: string; description?: string };
           };
-          const slug = path.split("/").pop()?.replace(".svx", "") || "";
+
+          // Extract slug from either /slug.svx or /slug/+page.svx
+          const relativePath = path.replace(this.directory + "/", "");
+          const slug = relativePath.includes("/+page.svx")
+            ? relativePath.replace("/+page.svx", "")
+            : relativePath.replace(".svx", "");
 
           return {
             slug,
@@ -38,7 +43,13 @@ export class Posts {
   }
 
   async getPostBySlug(slug: string): Promise<Post | null> {
-    const postPath = `${this.directory}/${slug}.svx`;
+    // Try new format first: /slug/+page.svx
+    let postPath = `${this.directory}/${slug}/+page.svx`;
+
+    // Fall back to old format: /slug.svx
+    if (!this.postFiles[postPath]) {
+      postPath = `${this.directory}/${slug}.svx`;
+    }
 
     if (!this.postFiles[postPath]) {
       return null;

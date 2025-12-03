@@ -2,6 +2,8 @@ import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { mdsvex } from "mdsvex";
 import { codeToHtml } from "shiki";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,6 +13,7 @@ const config = {
     vitePreprocess(),
     mdsvex({
       extensions: [".svx"],
+      rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
       highlight: {
         highlighter: async (code, lang = "text") => {
           const html = await codeToHtml(code, {

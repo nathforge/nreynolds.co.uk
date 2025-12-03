@@ -1,0 +1,35 @@
+[env]
+DECK_IP = "{{ exec(command='jq <.vscode/settings.json -r .deckip') }}"
+DECK_PORT = "{{ exec(command='jq <.vscode/settings.json -r .deckport') }}"
+DECK_USER = "{{ exec(command='jq <.vscode/settings.json -r .deckuser') }}"
+DECK_PASS = "{{ exec(command='jq <.vscode/settings.json -r .deckpass') }}"
+DECK_KEY = "{{ exec(command='jq <.vscode/settings.json -r .deckkey') | replace(from='${env:HOME}', to=env.HOME) }}"
+DECK_DIR = "{{ exec(command='jq <.vscode/settings.json -r .deckdir') }}"
+PLUGIN_NAME = "{{ exec(command='jq <plugin.json -r .name') }}"
+
+[tasks.build]
+run = ".vscode/build.sh"
+
+[tasks.copyzip]
+run = [
+    { task = "chmodplugins" },
+    "rsync -azp --chmod=Da=rwx,g=rx,o=rx,Fa=rwx,g=rx,o=rx --rsh='ssh -p {{ env.DECK_PORT }} {{ env.DECK_KEY }}' out/ {{ env.DECK_USER }}@{{ env.DECK_IP }}:{{ env.DECK_DIR }}/homebrew/plugins",
+]
+
+[tasks.extractzip]
+run = "echo '{{ env.DECK_DIR }}/homebrew/plugins/{{ env.PLUGIN_NAME }}.zip' && ssh {{ env.DECK_USER }}@{{ env.DECK_IP }} -p {{ env.DECK_PORT }} {{ env.DECK_KEY }} 'echo {{ env.DECK_PASS }} | sudo -S mkdir -m 755 -p \"$(echo \"{{ env.DECK_DIR }}/homebrew/plugins/{{ env.PLUGIN_NAME }}\" | sed \"s| |-|g\")\" && echo {{ env.DECK_PASS }} | sudo -S chown {{ env.DECK_USER }}:{{ env.DECK_USER }} \"$(echo \"{{ env.DECK_DIR }}/homebrew/plugins/{{ env.PLUGIN_NAME }}\" | sed \"s| |-|g\")\" && echo {{ env.DECK_PASS }} | sudo -S bsdtar -xzpf \"{{ env.DECK_DIR }}/homebrew/plugins/{{ env.PLUGIN_NAME }}.zip\" -C \"$(echo \"{{ env.DECK_DIR }}/homebrew/plugins/{{ env.PLUGIN_NAME }}\" | sed \"s| |-|g\")\" --strip-components=1 --fflags '"
+
+[tasks.deploy]
+run = [{ task = "copyzip" }, { task = "extractzip" }]
+
+[tasks.builddeploy]
+run = [{ task = "build" }, { task = "deploy" }]
+
+[tasks.chmodplugins]
+run = "ssh {{ env.DECK_USER }}@{{ env.DECK_IP }} -p {{ env.DECK_PORT }} {{ env.DECK_KEY }} 'echo '{{ env.DECK_PASS }}' | sudo -S chown {{ env.DECK_USER }} {{ env.DECK_DIR }}/homebrew/plugins/'"
+
+[tasks.restartdecky]
+run = "ssh {{ env.DECK_USER }}@{{ env.DECK_IP }} -p {{ env.DECK_PORT }} {{ env.DECK_KEY }} 'echo '{{ env.DECK_PASS }}' | sudo -S systemctl restart plugin_loader'"
+
+[tasks.builddeployrestart]
+run = [{ task = "build" }, { task = "deploy" }, { task = "restartdecky" }]

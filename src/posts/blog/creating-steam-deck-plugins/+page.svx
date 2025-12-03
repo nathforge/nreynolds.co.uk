@@ -1,0 +1,169 @@
+---
+title: "💨 WIP: Creating Steam Deck plugins"
+date: "2025-12-03"
+---
+
+<script>
+  import TableOfContents from "$lib/components/TableOfContents.svelte";
+  import CodeFromFile from "$lib/components/CodeFromFile.svelte";
+</script>
+
+<p style="font-size: 120%">
+    Info dump on creating a <a href="https://decky.xyz/">Steam Deck plugin</a>.
+</p>
+
+<TableOfContents />
+
+## Links
+
+- [Plugin template](https://github.com/SteamDeckHomebrew/decky-plugin-template)
+    - Clone this to create a plugin.
+    - It has VSCode config. It’s simpler to start out with VSCode - you can fiddle with a custom setup later.
+- [Plugin dev CLI](https://github.com/SteamDeckHomebrew/cli)
+    - The VSCode config installs & uses this CLI. But if you’re not using VSCode, make sure that `decky plugin build` can always build your plugin. Otherwise *you will not be able to distribute it on the store*.
+- [Wiki](https://wiki.deckbrew.xyz/)
+    - [Getting started](https://wiki.deckbrew.xyz/plugin-dev/getting-started)
+- [Discord](https://discord.com/invite/U88fbeHyzt) channels (if invite expired check [their site](https://decky.xyz/))
+    - #plugin-dev
+    - #plugin-knowledge-base
+- Community plugins
+    - [decky-plugin-database](https://github.com/SteamDeckHomebrew/decky-plugin-database/tree/main/plugins): everything you see in the store
+    - [NonSteamLaunchers-On-Steam-Deck](https://github.com/moraroy/NonSteamLaunchers-On-Steam-Deck)
+- Reverse engineering: [SteamTracking](https://github.com/SteamDatabase/SteamTracking)
+- *Bonus*:
+    - [Plugin store source](https://github.com/SteamDeckHomebrew/decky-plugin-store): if you want to run your own store
+
+## Plugin structure
+
+Steam Deck plugins have a frontend that hooks into the Deck’s [React UI](https://react.dev/) - see the src folder.
+
+A Python backend in main.py can provide extra functionality, and communicate with the frontend.
+
+You can optionally build a binary backend using a Dockerfile.
+
+Files:
+
+- `.vscode`*:* VSCode tasks to build & deploy to your Deck
+- `assets`*:* Static frontend asset files.
+- `backend`*: (optional)* Used for non-Python binaries built using Docker.
+- `defaults`*:* These files are copied to the root of your built plugin.
+- `py_modules`*:* Extra Python modules, whether yours or third-party.
+- `src`*:* The frontend UI source.
+- `decky.pyi`*:* Python type files for the plugin API.
+- `main.py`*:* Python backend. Can communicate with the UI.
+- `package.json` */* `pnpm-lock.yaml`*:* Frontend dependencies. Use [pnpm](https://pnpm.io/) to manage.
+- `plugin.json`*:* See the [Getting started](https://wiki.deckbrew.xyz/plugin-dev/getting-started) wiki.
+- `rollup.config.js`*:* Config for frontend builds. See [rollup-preset-decky](https://github.com/SteamDeckHomebrew/rollup-preset-decky).
+- `tsconfig.json`*:* Typescript config.
+
+## Step-by-step
+
+We’ll get the dev environment working before making code changes.
+
+Clone the [plugin template](https://github.com/SteamDeckHomebrew/decky-plugin-template). Use this for your new plugin.
+
+Open the plugin folder in VSCode.
+
+Edit the plugin.json - change the name if you want, but Example Plugin is fine for now.
+
+Now build & deploy your plugin then restart Decky loader - see the next sections.
+
+---
+
+### Build
+
+Ensure Docker is installed and running.
+
+Open the VSCode command palette (Ctrl/Cmd+Shift+P) → “Tasks: Run Task” → “build”
+
+This will setup the Decky CLI if needed - press enter to continue. Press enter if it asks to remove the node_modules directory.
+
+You should now have a plugin zip in the `out` directory.
+
+---
+
+### Deploy
+
+With a built plugin, let’s setup the deploy task.
+
+I assume you’ve configured SSH access to your deck - if not do that now.
+
+You should setup password-less SSH using `ssh-copy-id` or by editing `.ssh/authorized_keys` on the deck.
+
+Now edit your `.vscode/settings.json`.
+
+(The file is gitignored so you can freely add secrets.)
+
+- `deckip`/`deckport`: SSH host/port of your Deck
+- `deckuser`: should stay as “deck”
+- `deckpass`: set this to the deckuser’s password. Required because plugin directories are owned by root and deployment runs `sudo`.
+- `deckkey`: run `ls ~/.ssh/id_*` to verify your key filename. For example mine is `id_ed25519`. This filename must not have a `.pub` suffix.
+- `deckdir`: should stay as /home/deck.
+- `pluginname`: if you’ve changed the plugin name in plugin.json, change it here to match.
+- `python.analysis.extraPaths`: Not used during deployment, it’s for typechecking in the editor.
+
+Open the VSCode command palette (Ctrl/Cmd+Shift+P) → “Tasks: Run Task” → “restart”
+
+<aside>
+🤷
+
+**rsync troubles**: on my Mac it complained about the `rsync` command, specifically `--chmod=D0755,F0755` syntax. I edited `.vscode/tasks.json` to use `--chmod=a=rwx,g=rx,o=rx`<br>
+Looking at the [Linux man page](https://linux.die.net/man/1/rsync), this is the more compatible option.<br>
+(This issue is mentioned in [a Decky CLI pull request](https://github.com/SteamDeckHomebrew/cli/pull/8).)
+
+</aside>
+
+---
+
+### Restarting Decky
+
+We now need to restart Decky to see our new plugin.
+
+Open the VSCode command palette (Ctrl/Cmd+Shift+P) → “Tasks: Run Task” → “restart”.
+
+This takes 10-15 seconds for the Deck to visibly react, so be patient.
+
+You should see the Deck boot animation.
+
+Open Decky via the quick access menu and your plugin should be listed!
+
+<aside>
+🤔
+
+An unrelated plugin caused me issues with this step.<br>
+**The restart via VSCode bought my fans to full-speed**. I had to hard restart the Deck via the power switch.<br>
+It was fixed by removing all plugins and redeploying mine. To temporarily uninstall plugins you can rename the `homebrew/plugins` directory on your Deck.
+
+</aside>
+
+---
+
+## Quality of life improvements
+
+### Running tasks in the terminal
+
+I’m not a fan of VSCode tasks, preferring to use the CLI. Unfortunately the VSCode tasks aren’t available as standalone scripts.
+
+You may notice Decky CLI has a `decky plugin deploy` command. Unforutnately it has the same Mac `--chmod` issue as above, as well as issues with Deck file permissions. `decky plugin deploy` isn’t used by the VSCode task so I wonder if it’s abandoned…
+
+(I’d like to see if they’ll accept a PR to refactor VSCode tasks into scripts.)
+
+For now I'm using [Mise](https://mise.jdx.dev/). Save this as `mise.toml`:
+
+<CodeFromFile src="/src/posts/blog/creating-steam-deck-plugins/assets/mise.toml" lang="toml" />
+
+You can now run e.g `mise builddeployrestart`. It re-uses the `.vscode/settings.json` file for config.
+
+## Log files
+
+Logs are stored in `~/homebrew/logs`
+
+---
+
+## This is a work in progress. To do:
+
+- Live reload?
+- See about PRs for:
+    - Mac `--chmod` fixes for Decky CLI and VSCode tasks.
+    - Refactor plugin template tasks into scripts usable outside of VSCode.
+- Document the publishing flow.
