@@ -146,6 +146,8 @@ to temporarily uninstall plugins you can rename the `homebrew/plugins` directory
 
 [This Discord thread](https://discord.com/channels/960281551428522045/1138189976702570666) shows how to enable hot reloading of your plugin - no need to restart Decky.
 
+It only seems to handle the frontend however.
+
 tl;dr:
  * `sudo systemctl edit plugin_loader.service`
  * Add `Environment=LIVE_RELOAD=1`. Save and exit.
@@ -194,8 +196,15 @@ Logs are stored in `~/homebrew/logs`
 - PRs for:
     - Mac `--chmod` fixes for Decky CLI and VSCode tasks.
     - Refactor plugin template tasks into scripts usable outside of VSCode.
-- Implement an actual backend/frontend, including a binary backend.
+- Implement a complete actual backend/frontend, including a binary backend.
 - Notes on populating py_modules.
+  - pip:
+    - `python -m pip install -r requirements.txt --target py_modules`
+  - uv: (recommended)
+    - `uv init --bare`
+    - `uv pip install . --target py_modules`
+  - Multi-arch/cross-compiling?
+- Investigate hot reload - what's Decky loader actually doing? How can we reload the plugin backend?
 - Automated testing.
 - Document the store publishing flow.
 - Revisit using a blog page for this, it's pretty painful.
