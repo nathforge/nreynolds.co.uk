@@ -6,6 +6,7 @@ date: "2025-12-03"
 <script>
   import TableOfContents from "$lib/components/TableOfContents.svelte";
   import CodeFromFile from "$lib/components/CodeFromFile.svelte";
+  import miseToml from "./assets/mise.toml?raw";
 </script>
 
 <p style="font-size: 120%">
@@ -180,13 +181,14 @@ You may notice Decky CLI has a `decky plugin deploy` command. Unfortunately it h
 
 For now I'm using [Mise](https://mise.jdx.dev/). Save this as `mise.toml`:
 
-<CodeFromFile src="/src/posts/blog/creating-steam-deck-plugins/assets/mise.toml" lang="toml" />
+<CodeFromFile content={miseToml} lang="toml" />
 
 You can now run e.g `mise builddeployrestart`. It pulls config from `.vscode/settings.json`.
 
 ## Log files
 
-Logs are stored in `~/homebrew/logs`
+ * Plugin logs are stored in `~/homebrew/logs`
+ * Loader logs are `journalctl -u plugin_loader -f`
 
 ---
 

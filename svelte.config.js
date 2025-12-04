@@ -5,6 +5,8 @@ import { codeToHtml } from "shiki";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
+let codeHighlightCache = {};
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://svelte.dev/docs/kit/integrations

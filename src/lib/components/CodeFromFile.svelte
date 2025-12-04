@@ -1,35 +1,28 @@
 <script lang="ts">
   import { codeToHtml } from "shiki";
-  import { onMount } from "svelte";
 
-  let { src, lang = "text" }: { src: string; lang?: string } = $props();
+  interface Props {
+    content: string;
+    lang?: string;
+  }
 
-  let html = $state("");
+  let { content, lang = "text" }: Props = $props();
 
-  onMount(async () => {
-    try {
-      // Fetch the file content
-      const response = await fetch(src);
-      const code = await response.text();
-
-      // Highlight with Shiki
-      html = await codeToHtml(code, {
-        lang,
-        theme: "github-dark",
-        defaultColor: false,
-      });
-    } catch (error) {
-      console.error("Failed to load code file:", error);
-      html = `<pre>Error loading file: ${src}</pre>`;
-    }
-  });
+  // Highlight code immediately (works during SSR)
+  let html = codeToHtml(content, {
+    lang,
+    theme: "github-dark",
+    defaultColor: false,
+  }).then(html => html);
 </script>
 
-{#if html}
-  {@html html}
-{:else}
+{#await html}
   <pre class="loading">Loading...</pre>
-{/if}
+{:then highlightedHtml}
+  {@html highlightedHtml}
+{:catch error}
+  <pre>Error highlighting code</pre>
+{/await}
 
 <style>
   .loading {
