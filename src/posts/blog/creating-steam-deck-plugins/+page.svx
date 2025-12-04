@@ -203,6 +203,7 @@ Logs are stored in `~/homebrew/logs`
   - uv: (recommended)
     - `uv init --bare`
     - `uv pip install . --target py_modules`
+      - Can this be ran in the binary backend to replace py_modules?
   - Multi-arch/cross-compiling?
 - Investigate hot reload - what's Decky loader actually doing? How can we reload the plugin backend?
 - Automated testing.
