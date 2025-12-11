@@ -1,24 +1,3 @@
-<script lang="ts">
-  let { data } = $props();
-
-  const tinkeringProjects = [
-    {
-      title: "⏲️ Dishwasher Timer Calculator",
-      subtitle: "Because you can't think <em>and</em> load a dishwasher.",
-      url: "/experiments/dishwasher-timer",
-    },
-    {
-      title: "⏱️ Exponential backoff calculator",
-      url: "/experiments/exponential-backoff-calculator",
-    },
-    {
-      title: "💪 Nuffield Gym Activity",
-      subtitle: "Activity heatmap for Nuffield Norwich Gym.",
-      url: "/experiments/nuffield-activity",
-    },
-  ];
-</script>
-
 <svelte:head>
   <title>Nathan Reynolds</title>
 </svelte:head>
@@ -36,7 +15,6 @@
           </h1>
         </div>
       </div>
-      <p class="mt-2 text-gray-600">Some stuff, mostly for me. But hello 👋</p>
     </div>
 
     <div class="mb-24 flex justify-center space-x-4">
@@ -67,62 +45,6 @@
         </svg>
         <span>LinkedIn</span>
       </a>
-    </div>
-
-    <!-- Two Column Layout -->
-    <div class="mb-12 grid gap-6 md:grid-cols-2 md:divide-x md:divide-gray-200">
-      <!-- Blog Posts -->
-      <div class="md:pr-6">
-        <h2 class="mb-4 text-xl text-gray-800">Blog</h2>
-        <div class="space-y-3">
-          {#each data.posts as post (post.slug)}
-            <a
-              href="/blog/{post.slug}"
-              class="group block overflow-hidden rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 p-4 transition hover:shadow-lg"
-            >
-              <h3
-                class="mb-1 text-lg font-normal text-gray-900 group-hover:text-blue-600"
-              >
-                {post.title}
-              </h3>
-              <time class="mb-2 block text-xs font-medium text-gray-600">
-                {new Date(post.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              {#if post.description}
-                <p class="text-sm text-gray-700">{post.description}</p>
-              {/if}
-            </a>
-          {/each}
-        </div>
-      </div>
-
-      <!-- Tinkering Projects -->
-      <div>
-        <h2 class="mb-4 text-xl text-gray-800">Tinkering</h2>
-        <div class="space-y-3">
-          {#each tinkeringProjects as project (project.url)}
-            <a
-              href={project.url}
-              class="group block overflow-hidden rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 p-4 transition hover:shadow-lg"
-            >
-              <h3
-                class="text-lg font-normal text-gray-900 group-hover:text-blue-600"
-              >
-                {project.title}
-              </h3>
-              {#if project.subtitle}
-                <p class="mt-1 text-sm text-gray-700">
-                  {@html project.subtitle}
-                </p>
-              {/if}
-            </a>
-          {/each}
-        </div>
-      </div>
     </div>
   </div>
 </div>
