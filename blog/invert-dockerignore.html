@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<link href="../_app/immutable/entry/start.DP3cicus.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BRLZUAdk.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/t9v_umyn.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BuFlayix.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/app.D7QSDyIe.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/HclGiUj8.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/xihTtKlq.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/0.D8bz4jjp.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CjiYKW5V.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/3.UE5vSkG6.js" rel="modulepreload">
+		<!--12qhfyh--><link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI1NjNlYiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5MzMzZWEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZykiLz4KICA8dGV4dCB4PSIxNiIgeT0iMjIiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OUjwvdGV4dD4KPC9zdmc+Cg=="/><!----><!--1teoznn--><!--[0--><meta name="description" content="Container registries hate this one weird trick."/><!--]--><!----><title>Invert your .dockerignore for great profit</title>
+		<link href="../_app/immutable/assets/0.g1BcO-vl.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[0--><!--[--><!--[0--><header class="border-b border-gray-100"><div class="mx-auto max-w-2xl px-4 py-4"><a href="/" class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-lg font-semibold tracking-tight text-transparent hover:opacity-70">Nathan Reynolds</a></div></header><!--]--> <!--[--><main class="mx-auto max-w-2xl px-4 py-16"><a href="/" class="text-sm text-blue-600 hover:underline">← Home</a> <header class="mt-6 mb-10"><time class="text-sm text-gray-500">November 12, 2025</time> <h1 class="mt-2 text-3xl font-bold tracking-tight">Invert your .dockerignore for great profit</h1> <!--[0--><p class="mt-2 text-lg text-gray-600">Container registries hate this one weird trick.</p><!--]--></header> <article class="prose max-w-none prose-gray"><!--[--><p>Here’s something I use on personal projects:</p> <p><code>.dockerignore:</code></p> <pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8"><code><span class="line"><span>*</span></span>
+<span class="line"><span>!src</span></span>
+<span class="line"><span>!package.json</span></span>
+<span class="line"><span>!package-lock.json</span></span>
+<span class="line"><span>!tsconfig.json</span></span></code></pre> <p>Notice that we ignore <em>everything</em> with <code>*</code>, then opt-in files via the <code>!</code> prefix.</p> <h2>Why?</h2> <p>Prepending lines with <code>!</code> makes .dockerignore files opt-in, not opt-out. You’re telling it what you want, not what you don’t want.</p> <p>With opt-out it’s easy to be forgetful. Does your <code>.dockerignore</code> contain <code>.git</code>? Have you added <code>node_modules</code>? <code>.env</code>? What could you have forgotten?</p> <p>Opt-in is:</p> <ol><li><strong>Easier to reason about</strong>. This is the main thing for me. We have tools like <a href="https://github.com/wagoodman/dive" rel="nofollow">dive</a> to explore image bloat, perhaps we even run it once in a while. Or… use opt-out and be explicit about what matters.</li> <li><strong>Faster builds</strong>: less content in your Docker context makes for faster builds.</li> <li><strong>Quicker deployments</strong> during build push and node pull.</li> <li><strong>Improved security</strong> - less chance of unexpected files appearing in your images.</li></ol> <p>Our tools don’t make it easy to manage Docker context bloat.<br/> It takes intentional effort that I’d prefer to avoid.</p><!--]--></article></main><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_1wp62xc = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.DP3cicus.js"),
+						import("../_app/immutable/entry/app.D7QSDyIe.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
