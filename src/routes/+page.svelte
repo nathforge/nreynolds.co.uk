@@ -11,8 +11,6 @@
 <main class="mx-auto max-w-2xl px-4 py-16">
 	<h1 class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-3xl font-bold tracking-tight text-transparent">Nathan Reynolds</h1>
 
-	<p class="my-8">Some stuff, mostly for me. But hello! 👋</p>
-
 	<nav class="mt-4 flex gap-4 text-sm">
 		<a href="https://github.com/nathforge" class="text-blue-600 hover:underline">GitHub</a>
 		<a href="https://www.linkedin.com/in/nathan-reynolds-uk/" class="text-blue-600 hover:underline">LinkedIn</a>
