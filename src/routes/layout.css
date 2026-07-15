@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+.prose a {
+	@apply text-blue-600 hover:underline;
+}
+
+.callout {
+	@apply my-6 flex gap-3 rounded-xl border p-4 text-sm;
+}
+.callout-note   { @apply border-blue-200   bg-blue-50   text-blue-900; }
+.callout-tip    { @apply border-green-200  bg-green-50  text-green-900; }
+.callout-warning { @apply border-yellow-200 bg-yellow-50 text-yellow-900; }
+.callout-info   { @apply border-sky-200    bg-sky-50    text-sky-900; }
+
+.callout-icon { @apply shrink-0 text-base leading-5; }
+.callout-body { @apply min-w-0; }
+.callout-body p { @apply m-0; }
+.callout-body a { @apply underline; }
+
+/* Tailwind Typography adds backtick pseudo-elements around inline code by default. */
+.prose :where(code):not(:where([class~='not-prose'] *))::before,
+.prose :where(code):not(:where([class~='not-prose'] *))::after {
+	content: '';
+}
