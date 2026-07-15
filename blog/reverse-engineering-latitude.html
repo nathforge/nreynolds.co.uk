@@ -4,18 +4,18 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="text-scale" content="scale" />
-		<link href="../_app/immutable/entry/start.CrPh4TQl.js" rel="modulepreload">
-		<link href="../_app/immutable/chunks/D-qJx_oZ.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/start.BlawCVUO.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/DNjag-ho.js" rel="modulepreload">
 		<link href="../_app/immutable/chunks/t9v_umyn.js" rel="modulepreload">
 		<link href="../_app/immutable/chunks/BuFlayix.js" rel="modulepreload">
-		<link href="../_app/immutable/entry/app.DqgIdWIt.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/app.BhUwmrgR.js" rel="modulepreload">
 		<link href="../_app/immutable/chunks/HclGiUj8.js" rel="modulepreload">
 		<link href="../_app/immutable/chunks/xihTtKlq.js" rel="modulepreload">
-		<link href="../_app/immutable/nodes/0.CDtJco8e.js" rel="modulepreload">
-		<link href="../_app/immutable/chunks/B4U4Fu1c.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/0.CAoFt1Ai.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CXLeD1A2.js" rel="modulepreload">
 		<link href="../_app/immutable/nodes/3.UE5vSkG6.js" rel="modulepreload">
 		<!--12qhfyh--><link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI1NjNlYiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5MzMzZWEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZykiLz4KICA8dGV4dCB4PSIxNiIgeT0iMjIiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OUjwvdGV4dD4KPC9zdmc+Cg=="/><!----><!--1teoznn--><!--[0--><meta name="description" content="Latitude Festival has an app with a schedule, but it's pretty tedious to use. Give me a spreadsheet already!"/><!--]--><!----><title>Reverse engineering the Latitude app</title>
-		<link href="../_app/immutable/assets/0.g1BcO-vl.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/0.B5IWs1jB.css" rel="stylesheet">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents"><!--[--><!--[0--><!--[--><!--[0--><header class="border-b border-gray-100"><div class="mx-auto max-w-2xl px-4 py-4"><a href="/" class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-lg font-semibold tracking-tight text-transparent hover:opacity-70">Nathan Reynolds</a></div></header><!--]--> <!--[--><main class="mx-auto max-w-2xl px-4 py-16"><a href="/" class="text-sm text-blue-600 hover:underline">← Home</a> <header class="mt-6 mb-10"><time class="text-sm text-gray-500">August 4, 2025</time> <h1 class="mt-2 text-3xl font-bold tracking-tight">Reverse engineering the Latitude app</h1> <!--[0--><p class="mt-2 text-lg text-gray-600">Latitude Festival has an app with a schedule, but it's pretty tedious to use. Give me a spreadsheet already!</p><!--]--></header> <article class="prose max-w-none prose-gray"><!--[--><h2>To hacking</h2> <p>Android apps are simpler to reverse than iOS, though I don’t have an Android phone.</p> <p>I <a href="https://developer.android.com/studio/run/emulator" rel="nofollow">setup an Android emulator</a> - apparently they’re locked down these days and it’s trickier to get root. An API 26 image worked for me, there’s probably other options I’m not aware of.</p> <p>I then <a href="https://latitude-greencopper.en.aptoide.com/app" rel="nofollow">downloaded and installed the Latitude festival xapk</a>.</p> <p>Used <a href="https://apktool.org/" rel="nofollow">apktool</a> to decompile the xapk to <a href="https://pysmali.readthedocs.io/en/latest/api/smali/language.html" rel="nofollow">Smali code</a>. There’s an outer <code>xapk</code> file, and an <code>apk</code> file inside that. I ran <code>apktool d</code> on both. This gives something semi-readable to look at.</p> <div class="not-prose callout callout-info"><span class="callout-icon">ℹ️</span><div class="callout-body"><p><a href="https://github.com/skylot/jadx">jadx</a> provides more readable Java output but it can’t decompile everything. Having both Smali and Java can be handy however.</p></div></div> <p>I wanted to experiment with <a href="https://frida.re/docs/android/" rel="nofollow">frida-server</a> - it’s a toolkit that lets you patch Android functions. Initially to monitor HTTPS traffic - I could maybe have used <a href="https://www.mitmproxy.org/" rel="nofollow">mitmweb</a>, but Frida came in handy later.</p> <p>Started the Frida server on the emulator:</p> <pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8"><code><span class="line"><span style="color:#B392F0">adb</span><span style="color:#9ECBFF"> push</span><span style="color:#9ECBFF"> frida-server</span><span style="color:#9ECBFF"> /data/local/tmp/</span></span>
@@ -58,15 +58,15 @@
 			
 			<script>
 				{
-					__sveltekit_knzzqt = {
+					__sveltekit_1i9pi54 = {
 						base: new URL("..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../_app/immutable/entry/start.CrPh4TQl.js"),
-						import("../_app/immutable/entry/app.DqgIdWIt.js")
+						import("../_app/immutable/entry/start.BlawCVUO.js"),
+						import("../_app/immutable/entry/app.BhUwmrgR.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
