@@ -121,7 +121,7 @@ The first demo had good feedback and general excitement. It felt like we were on
 
 Metrics showed that engineers kept using it regularly - it wasn’t just an initial curiosity. The merge/deploy/test loops effectively disappeared for a good number of uses.
 
-I no longer work at the company so haven’t seen how it’s evolved, but am told it’s still in use. I'm proud of that.
+I no longer work at the company so haven’t seen how it’s evolved, but am told it’s still in use.
 
 ## Takeaways
 
