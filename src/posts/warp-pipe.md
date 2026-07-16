@@ -85,7 +85,7 @@ Next up - injecting that header into the first request.
 
 For API clients such as [Bruno](https://www.usebruno.com/) it’s simple enough.
 
-For the browser I built a Chrome extension that provided a UI. I paid 5$ for a developer account and shortly after had a private extension available to the company. I’d imagine Chrome's review process is slower for public extensions but for private it really didn’t take long at all. We’d anticipated a delay so initially advised testers to clone a repo and [load the unpacked extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked), but now I wouldn’t bother. Just get it listed in the store.
+For the browser I built a Chrome extension that provided a UI. I paid 5$ for a developer account and shortly after had a private extension available to the company. I’d imagine Chrome's review process is slower for public extensions but for private it didn’t take long at all. We’d anticipated a delay so initially advised testers to clone a repo and [load the unpacked extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked), but now I wouldn’t bother. Just get it listed in the store.
 
 ## Peering laptop services into the cloud
 
