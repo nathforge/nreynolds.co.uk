@@ -71,7 +71,7 @@ We added a dynamic router service in front of our load balancer. Settled on [Cad
 
 Next problem: route persistence. You can send a custom header to the first service, saying you want to make a substitution for **service D**. But how does each service pass that routing info down the chain? Remember that we didn’t want to update all of our services to enable this.
 
-Oh wait. That’s exactly what distributed tracing does. Tracing SDKs intercept incoming and outgoing requests to maintain a constant context for all requests in a chain. We’d been on a big push for tracing the previous year so got context propagation for free!
+Oh wait. Passing metadata between services is what distributed tracing does. Tracing SDKs intercept incoming and outgoing requests to maintain a constant context for all requests in a chain. We’d been on a big push for tracing the previous year so got context propagation for free!
 
 For extra data such as routing you can use the [baggage header](https://opentelemetry.io/docs/concepts/signals/baggage/). We investigated that however not all of our services supported it. For our tracing push we’d generally implemented _just enough_ support but _not_ the baggage header - not consistently.
 
