@@ -67,7 +67,7 @@ Luckily the bulk of service-to-service comms were HTTP, and these all went throu
 
 ## Dynamic routing
 
-We added a dynamic router service in front of our load balancer. Settled on [Caddy](https://caddyserver.com/) after a couple of iterations so we could focus on the business logic rather than the transport. Caddy was impressive. Nicely architected.
+We added a dynamic router service in front of our load balancer. Settled on [Caddy](https://caddyserver.com/) after a couple of iterations so we could focus on the business logic rather than the transport. Caddy was impressive. Nicely architected and straightforward to extend.
 
 Next problem: route persistence. You can send a custom header to the first service, saying you want to make a substitution for **service D**. But how does each service pass that routing info down the chain? Remember that we didn’t want to update all of our services to enable this.
 
