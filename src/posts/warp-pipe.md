@@ -43,9 +43,9 @@ flowchart LR
 
 And you want to re-route requests for **service D**. How do you do that? We considered:
 
-1.  Spin up a copy of the dev environment, with a new version of **service D**.
+1.  Spin up a copy of the dev environment with a different version of **service D**.
 
-2.  Figure how to apply dynamic routing. Keep a shared set of services, but somehow signify that you want to use this substitute of **service D**.
+2.  Figure how to apply dynamic routing. Keep the shared dev env, but somehow use a substitute for **service D** in some situations.
 
 Option 1 is expensive and results in a proliferation of environments that are awkward to manage.
 
@@ -53,7 +53,7 @@ Option 2 is more complex, unknowable at the start, but felt right for the long t
 
 ## Constraints
 
-We had a small devex team that could work on this. Other teams had their own roadmaps, so orchestrating changes to each service would have been slow.
+We had a small devex team that could work on this. Other teams had their own roadmaps, so orchestrating changes to each service would have been slow. We knew that per-service changes wasn't the right direction.
 
 Given this problem was hurting us right now, what could we do?
 
