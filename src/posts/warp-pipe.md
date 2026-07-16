@@ -93,7 +93,7 @@ We were retiring our VPN solution but didn’t have a clear replacement yet.
 
 [ngrok](https://ngrok.com/) was the quick win. Abstracted so we could switch providers but it performed well. I think there’s a service limit, we used a local HTTP router service to sidestep this.
 
-Some other talented folk had already created a devex CLI that bootstrapped and ran services, so getting that to run this local infrastructure was straightforward.
+Some other talented folk had already created a devex CLI that bootstrapped and ran services, so changing that to setup this local infrastructure was straightforward.
 
 The local infra handled the HTTP routing from ngrok and periodically sent service config to the dynamic router with a short-lived TTL.
 
