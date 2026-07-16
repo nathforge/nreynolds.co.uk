@@ -75,7 +75,7 @@ Oh wait. Passing metadata between services is what distributed tracing does. Tra
 
 For extra data such as routing you can use the [baggage header](https://opentelemetry.io/docs/concepts/signals/baggage/). We investigated that however not all of our services supported it. For our tracing push we’d generally implemented _just enough_ support but _not_ the baggage header - not consistently.
 
-Ah well. We can still read a routing header on the first request, associate it with the trace ID in Redis, and read it out again on subsequent requests in the chain which will share the trace ID.
+Ah well. We can still read a routing header on the first request, associate it with the trace ID in Redis, and read it out again on subsequent requests in the chain which will share a trace ID.
 
 ## Route configuration
 
