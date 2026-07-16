@@ -41,7 +41,7 @@ flowchart LR
     class E serviceE;
 ```
 
-And you want to change **service D**. How do you do that? We considered:
+And you want to re-route requests for **service D**. How do you do that? We considered:
 
 1.  Spin up a copy of the dev environment, with a new version of **service D**.
 
