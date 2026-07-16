@@ -51,8 +51,6 @@ Option 1 is expensive and results in a proliferation of environments that are aw
 
 Option 2 is more complex, unknowable at the start, but felt right for the long term. The difficulty stemmed from not having a complete understanding of our service-to-service comms.
 
-## Constraints
-
 We had a small devex team that could work on this. Other teams had their own roadmaps, so orchestrating changes to each service would have been slow. We knew that per-service changes wasn't the right direction.
 
 Given this problem was hurting us right now, what could we do?
@@ -77,7 +75,9 @@ For extra data such as routing you can use the [baggage header](https://opentele
 
 Ah well. We can still read a routing header on the first request, associate it with the trace ID in Redis, and read it out again on subsequent requests in the chain which will share a trace ID.
 
-## Route configuration
+Now before each service is called, our dynamic router can step in and perform a substitution based on routes sent to the first service in the chain.
+
+## Defining routes
 
 So we can re-route based on a header and pass that along to all downstream services.
 
