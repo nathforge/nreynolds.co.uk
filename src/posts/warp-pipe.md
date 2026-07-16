@@ -8,7 +8,7 @@ description: 'Building Warp Pipe: peering laptop services into our dev environme
 
 At PreviousJob our engineers could take days to test changes because it was impractical to run some services locally. Reasons included complex interdependencies, chonky GPU requirements, and Windows services on Apple silicon.
 
-I was working on the devex team at the time and had time between projects, this sounded like an interesting problem.
+I was working on the devex team at the time and this sounded like an interesting problem.
 
 We were practicing trunk-based continuous development with feature flags but that _really_ slowed down the process. A production deployment to test a change because it's too difficult to test locally?
 
