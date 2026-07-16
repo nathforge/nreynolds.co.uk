@@ -1,7 +1,7 @@
 ---
 title: Warp Pipe
 date: 2026-07-15
-description: 'Building Warp Pipe: peering laptop services into the cloud.'
+description: 'Building Warp Pipe: peering laptop services into our dev environment.'
 ---
 
 ## The problem
