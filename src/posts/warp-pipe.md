@@ -91,7 +91,7 @@ For the browser I built a Chrome extension that provided a UI. 5$ for a develope
 
 We were retiring our VPN solution but didn’t have a clear replacement yet.
 
-[ngrok](https://ngrok.com/) was the quick win. We abstracted it to guard against enshittification but it performed well. I think there’s a service limit, we used a local HTTP router service to sidestep this.
+[ngrok](https://ngrok.com/) was the quick win. Abstracted so we could switch providers but it performed well. I think there’s a service limit, we used a local HTTP router service to sidestep this.
 
 Some other talented folk had already created a devex CLI that bootstrapped and ran services, so getting that to run this local infrastructure was straightforward.
 
