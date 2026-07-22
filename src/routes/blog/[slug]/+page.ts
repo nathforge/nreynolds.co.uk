@@ -1,13 +1,14 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 import type { Component } from 'svelte';
+import { marked } from 'marked';
 
 interface PostModule {
 	default: Component;
 	metadata: {
 		title: string;
 		date: string;
-		description?: string;
+		description: string;
 	};
 }
 
@@ -18,6 +19,7 @@ export const load: PageLoad = async ({ params }) => {
 	if (!loader) throw error(404, 'Post not found');
 
 	const { default: PostComponent, metadata } = await loader();
+	const descriptionHtml = metadata.description ? marked.parseInline(metadata.description) as string : '';
 
-	return { PostComponent, metadata };
+	return { PostComponent, metadata, descriptionHtml };
 };

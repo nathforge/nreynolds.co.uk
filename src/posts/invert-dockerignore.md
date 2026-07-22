@@ -1,7 +1,8 @@
 ---
 title: Invert your .dockerignore for great profit
 date: 2025-11-12
-description: 'Container registries hate this one weird trick.'
+description: |
+  Container registries hate this one weird trick.
 ---
 
 Here's something I use on personal projects:

@@ -18,6 +18,10 @@
 .callout-body p { @apply m-0; }
 .callout-body a { @apply underline; }
 
+:not(pre) > code {
+	@apply rounded bg-gray-100 px-1 py-0.5 text-[0.875em];
+}
+
 /* Tailwind Typography adds backtick pseudo-elements around inline code by default. */
 .prose :where(code):not(:where([class~='not-prose'] *))::before,
 .prose :where(code):not(:where([class~='not-prose'] *))::after {

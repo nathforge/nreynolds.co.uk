@@ -1,7 +1,8 @@
 ---
 title: "Reverse engineering the Latitude app"
 date: "2025-08-04"
-description: "Latitude Festival has an app with a schedule, but it's pretty tedious to use. Give me a spreadsheet already!"
+description: |
+  Latitude Festival has an app with a schedule, but it's pretty tedious to use. Give me a spreadsheet already!
 ---
 
 
