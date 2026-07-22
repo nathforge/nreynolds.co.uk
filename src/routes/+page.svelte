@@ -20,16 +20,14 @@
 		{#each data.posts as post (post.slug)}
 			<li>
 				<a href="/blog/{post.slug}" class="group block rounded-xl bg-gradient-to-r from-blue-50 to-purple-50 p-5 transition-shadow hover:shadow-md">
-					{#if post.date && !isNaN(new Date(post.date).getTime())}
-					<time class="text-sm text-gray-500"
-						>{new Date(post.date).toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric'
-						})}</time
-					>
-				{/if}
-					<h2 class="mt-1 text-xl font-semibold text-blue-600">{post.title}</h2>
+					<div class="flex items-baseline justify-between gap-4">
+						<h2 class="text-xl font-semibold text-blue-600">{post.title}</h2>
+						{#if post.date && !isNaN(new Date(post.date).getTime())}
+							<time class="shrink-0 text-sm text-gray-500"
+								>{post.date}</time
+							>
+						{/if}
+					</div>
 					{#if post.descriptionHtml}
 						<p class="mt-1 text-gray-600">{@html post.descriptionHtml}</p>
 					{/if}

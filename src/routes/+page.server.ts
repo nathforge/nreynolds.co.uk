@@ -29,6 +29,7 @@ export const load = async () => {
 			return {
 				slug,
 				...mod.metadata,
+				date: new Date(m.date).toISOString().slice(0, 10),
 				descriptionHtml: m?.description ? marked.parseInline(m.description) as string : ''
 			};
 		})

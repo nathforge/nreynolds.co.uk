@@ -20,6 +20,7 @@ export const load: PageLoad = async ({ params }) => {
 
 	const { default: PostComponent, metadata } = await loader();
 	const descriptionHtml = metadata.description ? marked.parseInline(metadata.description) as string : '';
+	const date = new Date(metadata.date).toISOString().slice(0, 10);
 
-	return { PostComponent, metadata, descriptionHtml };
+	return { PostComponent, metadata: { ...metadata, date }, descriptionHtml };
 };

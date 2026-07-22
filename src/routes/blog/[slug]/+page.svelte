@@ -16,11 +16,7 @@
 	<header class="mt-6 mb-10">
 		{#if data.metadata.date && !isNaN(new Date(data.metadata.date).getTime())}
 			<time class="text-sm text-gray-500">
-				{new Date(data.metadata.date).toLocaleDateString('en-US', {
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric'
-				})}
+				{data.metadata.date}
 			</time>
 		{/if}
 		<h1 class="mt-2 text-3xl font-bold tracking-tight">{data.metadata.title}</h1>
