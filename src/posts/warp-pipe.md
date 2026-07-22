@@ -74,7 +74,7 @@ Oh wait. Passing metadata between services is what distributed tracing does. Tra
 
 For extra data such as routing you can use the [baggage header](https://opentelemetry.io/docs/concepts/signals/baggage/). We investigated that however not all of our services supported it. For our tracing push we’d generally implemented _just enough_ support but _not_ the baggage header - not consistently.
 
-Ah well. We can still read a routing header on the first request, associate it with the trace ID in Redis, and read it out again on subsequent requests in the chain which all share a trace ID.
+Ah well. We can still read a routing header on the first request, associate it with the trace ID in Redis, and read it out again on subsequent requests in the chain - all of which share a trace ID.
 
 Now before each service is called, our dynamic router can step in and perform a substitution based on routes sent to the first service in the chain.
 
@@ -86,7 +86,7 @@ Next up - injecting that header into the first request.
 
 For API clients such as [Bruno](https://www.usebruno.com/) it’s simple enough.
 
-For the browser I built a Chrome extension that provided a UI. $5 for a developer account and shortly after had a private extension available to the company. I’d imagine Chrome's review process is slower for public extensions, but for private it didn’t take long at all. We’d anticipated a delay so initially advised testers to clone a repo and [load the unpacked extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked), but now I wouldn’t bother. Just get it listed in the store.
+For the browser I built a Chrome extension that provided a UI. $5 for a developer account and shortly after we had a private extension available to the company. Chrome's review process is probably slower for public extensions, but for private it didn’t take long at all. We’d anticipated a delay so initially advised testers to clone a repo and [load the unpacked extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked), but now I wouldn’t bother. Just get it listed in the store.
 
 ## Peering laptop services into the cloud
 
