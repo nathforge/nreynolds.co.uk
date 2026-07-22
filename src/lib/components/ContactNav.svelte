@@ -51,7 +51,7 @@
 				{/if}
 			</a>
 		{#if showPopover}
-			<div class="absolute left-0 top-full z-10 mt-1 flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-lg">
+			<div class="absolute right-0 top-full z-10 mt-1 flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-lg">
 				<a href="mailto:{email}" class="text-sm text-gray-800 hover:underline">{email}</a>
 				<button
 					onclick={copyEmail}
