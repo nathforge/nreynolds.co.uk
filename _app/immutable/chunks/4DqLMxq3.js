@@ -1,4 +1,5 @@
-import{H as e,h as t,p as n}from"./CawAegf7.js";import"./xihTtKlq.js";import"./BGHBuBed.js";var r={title:`Invert your .dockerignore for great profit`,date:`2025-11-12T00:00:00.000Z`,description:`Container registries hate this one weird trick.`},{title:i,date:a,description:o}=r,s=t(`<p>Here’s something I use on personal projects:</p> <p><code>.dockerignore:</code></p> <pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8"><code><span class="line"><span>*</span></span>
+import{U as e,g as t,m as n}from"./1gKZiK5s.js";import"./xihTtKlq.js";import"./CvFwrxhR.js";var r={title:`Invert your .dockerignore for great profit`,date:`2025-11-12T00:00:00.000Z`,description:`Container registries hate this one weird trick.
+`},{title:i,date:a,description:o}=r,s=t(`<p>Here’s something I use on personal projects:</p> <p><code>.dockerignore:</code></p> <pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8"><code><span class="line"><span>*</span></span>
 <span class="line"><span>!src</span></span>
 <span class="line"><span>!package.json</span></span>
 <span class="line"><span>!package-lock.json</span></span>
