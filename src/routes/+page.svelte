@@ -1,7 +1,11 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+
+	let jsAvailable = $state(false);
+	onMount(() => { jsAvailable = true; });
 
 	const email = 'email@nreynolds.co.uk';
 	let showPopover = $state(false);
@@ -48,7 +52,14 @@
 		<a href="https://hachyderm.io/@nathforge" class="text-blue-600 hover:underline">Mastodon</a>
 		<a href="https://www.linkedin.com/in/nathan-reynolds-uk/" class="text-blue-600 hover:underline">LinkedIn</a>
 		<div class="relative" bind:this={wrapperEl}>
-			<a href="mailto:{email}" onclick={handleEmailClick} class="text-blue-600 hover:underline">Email</a>
+			<a href="mailto:{email}" onclick={handleEmailClick} class="inline-flex items-center gap-0.5 text-blue-600 hover:underline">
+					Email
+					{#if jsAvailable}
+						<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" class="opacity-40" aria-hidden="true">
+							<polygon points="1,3 9,3 5,8" fill="currentColor"></polygon>
+						</svg>
+					{/if}
+				</a>
 			{#if showPopover}
 				<div class="absolute left-0 top-full z-10 mt-1 flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-lg">
 					<a href="mailto:{email}" class="text-sm text-gray-800 hover:underline">{email}</a>
