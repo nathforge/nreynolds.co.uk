@@ -12,7 +12,7 @@
 	{/if}
 </svelte:head>
 
-<main class="mx-auto max-w-2xl px-4 py-16">
+<main class="mx-auto max-w-2xl px-4 py-8">
 	<header class="mt-6 mb-10">
 		{#if data.metadata.date && !isNaN(new Date(data.metadata.date).getTime())}
 			<time class="text-sm text-gray-500">
