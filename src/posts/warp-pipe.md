@@ -11,9 +11,9 @@ At PreviousJob our engineers could take days to test changes because it was impr
 
 I was working on the devex team at the time and this sounded like an interesting problem.
 
-We were practicing trunk-based continuous development with feature flags so we *could* safely test changes on prod, but that _really_ slowed down the process.
+We were practicing trunk-based continuous development with feature flags so we *could* test changes on prod, but that _really_ slowed down the process.
 
-And a difficult dev cycle results in more bugs, more incidents.
+And an awkward dev cycle results in more bugs, more incidents.
 
 For the UI it’s an easy solve because the UI initiates requests - downstream services don’t connect back to it, so you can have as many UIs as you want.
 
