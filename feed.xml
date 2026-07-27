@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Nathan Reynolds</title>
+  <link href="https://nreynolds.co.uk/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://nreynolds.co.uk/"/>
+  <updated>2026-07-22T00:00:00.000Z</updated>
+  <id>https://nreynolds.co.uk/</id>
+  <entry>
+    <title>AWS SSO tools</title>
+    <link href="https://nreynolds.co.uk/blog/aws-sso-tools"/>
+    <id>https://nreynolds.co.uk/blog/aws-sso-tools</id>
+    <updated>2026-07-22T00:00:00.000Z</updated>
+    <summary type="html">The goal: never run &lt;code&gt;aws sso login&lt;/code&gt; again.
+</summary>
+  </entry>
+  <entry>
+    <title>Warp Pipe</title>
+    <link href="https://nreynolds.co.uk/blog/warp-pipe"/>
+    <id>https://nreynolds.co.uk/blog/warp-pipe</id>
+    <updated>2026-07-15T00:00:00.000Z</updated>
+    <summary type="html">Building Warp Pipe: peering laptop services into our dev environment.
+</summary>
+  </entry>
+  <entry>
+    <title>Invert your .dockerignore for great profit</title>
+    <link href="https://nreynolds.co.uk/blog/invert-dockerignore"/>
+    <id>https://nreynolds.co.uk/blog/invert-dockerignore</id>
+    <updated>2025-11-12T00:00:00.000Z</updated>
+    <summary type="html">Container registries hate this one weird trick.
+</summary>
+  </entry>
+  <entry>
+    <title>Reverse engineering the Latitude app</title>
+    <link href="https://nreynolds.co.uk/blog/reverse-engineering-latitude"/>
+    <id>https://nreynolds.co.uk/blog/reverse-engineering-latitude</id>
+    <updated>2025-08-04T00:00:00.000Z</updated>
+    <summary type="html">Latitude Festival has an app with a schedule, but it&amp;#39;s pretty tedious to use. Give me a spreadsheet already!
+</summary>
+  </entry>
+</feed>
