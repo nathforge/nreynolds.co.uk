@@ -13,3 +13,6 @@ Some neat features:
  * Tools are small units so you can plumb them into your own tooling - e.g `should-login`, `login-showing-code`.
  * The login check is purely local so adds little overhead. It reads from `~/.aws/sso/cache`.
  * The tools are written in Rust for small size and fast startup.
+
+Notable shortcomings:
+ * Long-running services won't trigger another SSO login upon expiry - it only occurs on program invocation.
