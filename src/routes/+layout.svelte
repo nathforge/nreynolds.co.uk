@@ -9,7 +9,10 @@
 	const isHome = $derived(page.url.pathname === '/');
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+	<link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Nathan Reynolds" />
+</svelte:head>
 
 {#if !isHome}
 	<header class="border-b border-gray-100">
