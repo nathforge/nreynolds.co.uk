@@ -15,7 +15,7 @@ We were practicing trunk-based continuous development with feature flags so we *
 
 And an awkward dev cycle results in more bugs, more incidents.
 
-So - we want to run different variants of services for testing. For the UI it’s easy solve because the UI initiates requests; downstream services don’t connect back to the UI, so you can run as many as you want.
+So - we want to run different variants of services for testing. For the UI it’s an easy solve because the UI initiates requests; downstream services don’t connect back to the UI, so you can run as many as you want.
 
 But say you have this:
 
