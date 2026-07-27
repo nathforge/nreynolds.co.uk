@@ -11,7 +11,7 @@ I love/hate `aws sso login`. From a security perspective, short-lived credential
 
 Design considerations:
  * The commands are small units that you can plumb into your own tooling - e.g `should-login`, `login-showing-code`.
- * The login check is purely local which adds little overhead, parsing from `~/.aws/sso/cache`. e.g `should-login` takes 30ms on my machine.
+ * The login check is purely local which adds little overhead, parsing from `~/.aws/sso/cache`. For example `should-login` takes 30ms on my machine.
 
 Shortcomings:
  * Long-running services won't trigger another SSO login upon expiry - it only occurs on program invocation.
