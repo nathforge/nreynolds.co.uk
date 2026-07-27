@@ -9,7 +9,7 @@ I love/hate `aws sso login`. From a security perspective, short-lived credential
 
 [aws-sso-tools](https://github.com/nathforge/aws-sso-tools) are helpers to automatically run `aws sso login` just before you need it. There’s wrappers for the AWS CLI, for your own services, and for Docker pull/push.
 
-Some neat features:
+Design considerations:
  * The commands are small units that you can plumb into your own tooling - e.g `should-login`, `login-showing-code`.
  * The login check is purely local which adds little overhead, parsing from `~/.aws/sso/cache`. e.g `should-login` takes 30ms on my machine.
 
