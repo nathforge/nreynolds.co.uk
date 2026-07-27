@@ -11,7 +11,7 @@ At PreviousJob our engineers could take days to test changes because it was impr
 
 I was working on the devex team at the time and this sounded like an interesting problem.
 
-We were practicing trunk-based continuous development with feature flags but that _really_ slowed down the process. A production deployment to test a change because it's too difficult to test locally?
+We were practicing trunk-based continuous development with feature flags so we *could* safely test changes on prod, but that _really_ slowed down the process.
 
 And a difficult dev cycle results in more bugs, more incidents.
 
