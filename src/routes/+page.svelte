@@ -13,7 +13,7 @@
 	<h1 class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-3xl font-bold tracking-tight text-transparent">Nathan Reynolds</h1>
 
 	<p>
-		Has a domain name and isn't afraid to use it.
+		Has a domain name.
 	</p>
 
 	<div class="mt-4">
