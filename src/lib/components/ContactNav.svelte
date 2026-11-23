@@ -39,7 +39,6 @@
 
 <nav class="flex gap-4 text-sm">
 	<a href="https://github.com/nathforge" class="text-blue-600 hover:underline">GitHub</a>
-	<a href="https://hachyderm.io/@nathforge" class="text-blue-600 hover:underline">Mastodon</a>
 	<a href="https://www.linkedin.com/in/nathan-reynolds-uk/" class="text-blue-600 hover:underline">LinkedIn</a>
 	<div class="relative" bind:this={wrapperEl}>
 		<a href="mailto:{email}" onclick={handleEmailClick} class="inline-flex items-center gap-0.5 text-blue-600 hover:underline">
